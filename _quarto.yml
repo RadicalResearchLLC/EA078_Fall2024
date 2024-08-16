@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "EA078_Fall2024"
@@ -10,8 +11,8 @@ website:
       - about.qmd
 
 format:
-  html:
-    theme: cosmo
+  live-html:
+    theme: united
     css: styles.css
     toc: true
 
