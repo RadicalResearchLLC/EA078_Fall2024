@@ -1,11 +1,15 @@
 ---
-title: "Environmental Data Visualizatio: EA078 Fall 2024"
+title: "Environmental Data Visualization: EA078 Fall 2024"
+format: live-html
+engine: knitr
 ---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-```{r}
-1 + 1
+```{webr}
+1 + 2
 ```
