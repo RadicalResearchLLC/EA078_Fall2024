@@ -47,7 +47,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./tools.html" rel="next">
-<link href="./maps1.html" rel="prev">
+<link href="./chartJunk.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -165,6 +165,18 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to Spatial Visualization - 1</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./maps2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to Spatial Visualization 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chartJunk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chartjunk, Data-Ink Ratios, and Visualization Theory</span></span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -186,6 +198,24 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">R and RStudio Installation and Overview</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Debugging Steps</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -377,15 +407,15 @@ Table&nbsp;A.1: Breakdown of course points
 <p>The theory of environmental data visualization will use selected readings assigned to students. Every other class will involve a discussion of an assigned reading or analysis of an environmental data visualization.</p>
 <p>Assigned readings will include selections from books, peer-review journal articles, websites, and newspaper articles. A selection of readings that are likely to be discussed in the course includes:</p>
 <ul>
-<li>Selections from Tufte’s book ‘The Visual Display of Quantitative Information’ <span class="citation" data-cites="tufteVisualDisplayQuantitative2001">(<a href="#ref-tufteVisualDisplayQuantitative2001" role="doc-biblioref">Tufte 2001</a>)</span>
+<li>Selections from Tufte’s book ‘The Visual Display of Quantitative Information’ <span class="citation" data-cites="tufteVisualDisplayQuantitative2001">(<a href="references.html#ref-tufteVisualDisplayQuantitative2001" role="doc-biblioref">Tufte 2001</a>)</span>
 </li>
-<li>Selections from Tufte’s book ‘Envisioning Information’ <span class="citation" data-cites="tufteEnvisioningInformation2013">(<a href="#ref-tufteEnvisioningInformation2013" role="doc-biblioref">Tufte 2013</a>)</span>
+<li>Selections from Tufte’s book ‘Envisioning Information’ <span class="citation" data-cites="tufteEnvisioningInformation2013">(<a href="references.html#ref-tufteEnvisioningInformation2013" role="doc-biblioref">Tufte 2013</a>)</span>
 </li>
-<li>Selections from Hadley Wickham’s “Grammar of Graphics” with ggplot2, shiny, and other R packages. <span class="citation" data-cites="wickhamWelcomeTidyverse2019">(<a href="#ref-wickhamWelcomeTidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>
+<li>Selections from Hadley Wickham’s “Grammar of Graphics” with ggplot2, shiny, and other R packages. <span class="citation" data-cites="wickhamWelcomeTidyverse2019">(<a href="references.html#ref-wickhamWelcomeTidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>
 </li>
-<li>A selection of Peer-review journal articles listed in the references below. <span class="citation" data-cites="hortonEnhancingOperationalValue2020 kelleherTenGuidelinesEffective2011 vanbeekEnvironmentalVisualizationsFraming2020 gommehVisualDiscourseCoalitions2021 murchieFundamentalsGraphicDesign2020 graingerEnvironmentalDataVisualisation2016">(<a href="#ref-hortonEnhancingOperationalValue2020" role="doc-biblioref">Horton, Nowak, and Haegeli 2020</a>; <a href="#ref-kelleherTenGuidelinesEffective2011" role="doc-biblioref">Kelleher and Wagener 2011</a>; <a href="#ref-vanbeekEnvironmentalVisualizationsFraming2020" role="doc-biblioref">van Beek et al. 2020</a>; <a href="#ref-gommehVisualDiscourseCoalitions2021" role="doc-biblioref">Gommeh, Dijstelbloem, and Metze 2021</a>; <a href="#ref-murchieFundamentalsGraphicDesign2020" role="doc-biblioref">Murchie and Diomede 2020</a>; <a href="#ref-graingerEnvironmentalDataVisualisation2016" role="doc-biblioref">Grainger, Mao, and Buytaert 2016</a>)</span>
+<li>A selection of Peer-review journal articles listed in the references below. <span class="citation" data-cites="hortonEnhancingOperationalValue2020 kelleherTenGuidelinesEffective2011 vanbeekEnvironmentalVisualizationsFraming2020 gommehVisualDiscourseCoalitions2021 murchieFundamentalsGraphicDesign2020 graingerEnvironmentalDataVisualisation2016">(<a href="references.html#ref-hortonEnhancingOperationalValue2020" role="doc-biblioref">Horton, Nowak, and Haegeli 2020</a>; <a href="references.html#ref-kelleherTenGuidelinesEffective2011" role="doc-biblioref">Kelleher and Wagener 2011</a>; <a href="references.html#ref-vanbeekEnvironmentalVisualizationsFraming2020" role="doc-biblioref">van Beek et al. 2020</a>; <a href="references.html#ref-gommehVisualDiscourseCoalitions2021" role="doc-biblioref">Gommeh, Dijstelbloem, and Metze 2021</a>; <a href="references.html#ref-murchieFundamentalsGraphicDesign2020" role="doc-biblioref">Murchie and Diomede 2020</a>; <a href="references.html#ref-graingerEnvironmentalDataVisualisation2016" role="doc-biblioref">Grainger, Mao, and Buytaert 2016</a>)</span>
 </li>
-<li>Newspaper articles such as the LA Times article by Professor Phillips on Inland Empire Warehouse growth <span class="citation" data-cites="facebookOpEdWeMapped2022">(<a href="#ref-facebookOpEdWeMapped2022" role="doc-biblioref">Facebook et al. 2022</a>)</span>
+<li>Newspaper articles such as the LA Times article by Professor Phillips on Inland Empire Warehouse growth <span class="citation" data-cites="facebookOpEdWeMapped2022">(<a href="references.html#ref-facebookOpEdWeMapped2022" role="doc-biblioref">Facebook et al. 2022</a>)</span>
 </li>
 <li>Readings on the meaning, use, and technical limitations of Environmental Justice tools</li>
 </ul>
@@ -403,7 +433,7 @@ eyJjb250ZW50cyI6W119
 </div>
 <script type="vfs-file">
 W10=
-</script><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+</script><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-facebookOpEdWeMapped2022" class="csl-entry" role="listitem">
 Facebook, Twitter, Show more sharing options, Facebook, Twitter, LinkedIn, Email, Copy Link URLCopied!, and Print. 2022. <span>“Op-<span>Ed</span>: <span>We</span> Mapped the Warehouse Takeover of the <span>Inland Empire</span>. <span>The</span> Results Are Overwhelming.”</span> <em>Los Angeles Times</em>. https://www.latimes.com/opinion/story/2022-05-01/inland-empire-warehouse-growth-map-environment.
 </div>
@@ -864,8 +894,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./maps1.html" class="pagination-link" aria-label="Introduction to Spatial Visualization - 1">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to Spatial Visualization - 1</span></span>
+      <a href="./chartJunk.html" class="pagination-link" aria-label="Chartjunk, Data-Ink Ratios, and Visualization Theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chartjunk, Data-Ink Ratios, and Visualization Theory</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

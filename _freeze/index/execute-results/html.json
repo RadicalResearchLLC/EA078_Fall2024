@@ -1,0 +1,17 @@
+{
+  "hash": "b55fdfaa7e6e91b6ed2e7f27ed6b3a03",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ndescription-meta: |\n  This book/website will serve as the course outline and lesson plan for the Fall 2024 Pitzer College course 078 PZ - Environmental Data Visualization. \nformat: live-html\nengine: knitr\n---\n\n::: {.cell}\n\n:::\n\n\n\n\n\n## Preface {.unnumbered}\n\nThis is the course website for **'EA 078 PZ - Environmental Data Visualization'**. In this course, you will learn to import, manipulate, and visualize data using R, with hands-on examples. You will also learn the theory and ethics of environmental data visualization. Throughout the course, you will have the opportunity to practice and apply the skills and judgment of data visualization to provide effective illustrations of real-world data in order to persuade, inform, and communicate.\n\n::: {.callout-note appearance=\"simple\"}\nThis book is created using the [Quarto](https://quarto.org) publishing system in order to provide an example of its use in environmental data visualization and as a course resource tool for display of coding examples and visualization.\n:::\n\n## License\n\nThis website is **free to use**, and is licensed under the [Creative Commons Attribution-ShareAlike 4.0](https://creativecommons.org/licenses/by-sa/4.0/) License.\n\n![cc-by-sa-image](https://licensebuttons.net/l/by-sa/4.0/88x31.png) ![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)\n\n## Earth Selfie\n\n@fig-PaleBlueDot is the iconic [Pale Blue Dot](https://solarsystem.nasa.gov/resources/536/voyager-1s-pale-blue-dot/) image taken by the Voyager 1 space probe in 1990 from beyond Neptune. The Earth in this image is only a single pixel in size.\n\n![Carl Sagan's Pale Blue Dot - an effective visualization?](images/paleBlueDot.jpg){#fig-PaleBlueDot}\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

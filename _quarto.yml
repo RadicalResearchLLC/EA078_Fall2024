@@ -17,7 +17,8 @@ book:
       - coding1.qmd
       - maps1.qmd   
       - maps2.qmd   
-      - chartJunk.qmd   #    - assignment1.qmd
+      - chartJunk.qmd   
+      - assignment1.qmd
   appendices: 
     - syllabus.qmd  
     - tools.qmd 
