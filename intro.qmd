@@ -1,0 +1,49 @@
+# Introductions {#sec-intro .unnumbered}
+
+Welcome to **EA 078 PZ: Environmental Data Visualization**!
+
+## Course Description
+
+This is an introductory course on the theory and practice of effective communication with quantitative data. This course will introduce the theory of data visualization, discuss the ethics of data visualization, provide hands-on training in acquiring, tidying, and visualizing quantitative environmental data, and critically examine current environmental justice tools (CalEnviroScreen, EPA's EJScreen, EPA's EnviroAtlas, CEJST).
+
+## About Me
+
+Call me any of the following:
+
+-   Mike
+-   Dr. Mike
+-   Professor Mike
+-   Dr. McCarthy
+-   Professor McCarthy
+
+My pronouns are he/him. Here is some of my background.
+
+-   [Adjunct Professor](https://en.wikipedia.org/wiki/Adjunct_professors_in_North_America) in Department of Environmental Analysis
+-   I have been an Environmental Consultant for \~20 years
+    -   currently I am a sole proprietor at [Radical Research LLC](http://radicalresearch.llc/)
+    -   prior to that I worked at a company called [Sonoma Technology, Inc.](https://www.sonomatech.com)
+-   Trained as a chemist/atmospheric chemist
+    -   undergrad at [Creighton University](https://www.creighton.edu)
+    -   grad school at [UC Berkeley](https://www.berkeley.edu)
+-   In my spare time, I enjoy
+    -   games (board, tabletop roleplaying, video games)
+    -   yoga
+    -   swimming
+    -   fighting [warehouse development](https://radicalresearch.shinyapps.io/WarehouseCITY/) in my neighborhood and the IE as Vice Chair of [Riverside Neighbors Opposing Warehouses](https://sites.google.com/view/rivnow/)
+-   My spouse is a Professor of Botany and Plant Sciences at [UC Riverside](https://www.ucr.edu), and my son is a student in middle school
+-   My goals for this course
+    -   bounce ideas around for cool new ways of looking at environmental data
+    -   explore and connect with your environmental interests
+    -   continuously improve my teaching to better meet your needs
+    -   learn new ways of thinking about problems
+    -   build tools to empower, inform, and persuade our communities
+
+## About You
+
+Now it is your turn to introduce yourself. Please address the following four bullets. Please add anything else you think will be helpful for me and/or your colleagues to know about you.
+
+-   Name (as you would like to be addressed)
+-   Year
+-   Major/Field
+-   Your goal(s) for this course (if any)
+-   An uninteresting factoid about you

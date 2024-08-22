@@ -1,9 +1,30 @@
 project:
-  type: website
+  type: book
   output-dir: docs
 
-website:
+book:
   title: "EA078_Fall2024"
+  subtitle: 'A course on the theory and practice of communication through data visualization'
+  author: "Michael McCarthy, PhD"
+  #affiliation: "Pitzer College"
+  date: today
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - part: weather.qmd
+      chapters:
+      - information.qmd
+      - coding1.qmd
+      - maps1.qmd   
+      - maps2.qmd   
+      - chartJunk.qmd   #    - assignment1.qmd
+  appendices: 
+    - syllabus.qmd  
+    - tools.qmd 
+    - resources.qmd 
+    - debugging.qmd 
+    - references.qmd
+  
   navbar:
     left:
       - href: index.qmd
@@ -13,8 +34,12 @@ website:
 format:
   live-html:
     theme: united
-    css: styles.css
     toc: true
+    toc-depth: 4
+    code-link: true
 
+bibliography: references.bib
+execute: 
+  freeze: auto
 
 
