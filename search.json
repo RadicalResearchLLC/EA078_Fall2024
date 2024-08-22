@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "EA078_Fall2024",
+    "title": "Environmental Data Visualization - EA 078 Fall 2024",
     "section": "",
     "text": "Preface\nThis is the course website for ‘EA 078 PZ - Environmental Data Visualization’. In this course, you will learn to import, manipulate, and visualize data using R, with hands-on examples. You will also learn the theory and ethics of environmental data visualization. Throughout the course, you will have the opportunity to practice and apply the skills and judgment of data visualization to provide effective illustrations of real-world data in order to persuade, inform, and communicate.",
     "crumbs": [
@@ -13,7 +13,7 @@
   {
     "objectID": "index.html#preface",
     "href": "index.html#preface",
-    "title": "EA078_Fall2024",
+    "title": "Environmental Data Visualization - EA 078 Fall 2024",
     "section": "",
     "text": "This book is created using the Quarto publishing system in order to provide an example of its use in environmental data visualization and as a course resource tool for display of coding examples and visualization.",
     "crumbs": [
@@ -24,7 +24,7 @@
   {
     "objectID": "index.html#license",
     "href": "index.html#license",
-    "title": "EA078_Fall2024",
+    "title": "Environmental Data Visualization - EA 078 Fall 2024",
     "section": "License",
     "text": "License\nThis website is free to use, and is licensed under the Creative Commons Attribution-ShareAlike 4.0 License.",
     "crumbs": [
@@ -35,7 +35,7 @@
   {
     "objectID": "index.html#earth-selfie",
     "href": "index.html#earth-selfie",
-    "title": "EA078_Fall2024",
+    "title": "Environmental Data Visualization - EA 078 Fall 2024",
     "section": "Earth Selfie",
     "text": "Earth Selfie\nFigure 1 is the iconic Pale Blue Dot image taken by the Voyager 1 space probe in 1990 from beyond Neptune. The Earth in this image is only a single pixel in size.\n\n\n\n\n\nFigure 1: Carl Sagan’s Pale Blue Dot - an effective visualization?",
     "crumbs": [
