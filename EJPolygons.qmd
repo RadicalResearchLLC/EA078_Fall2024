@@ -22,8 +22,6 @@ A cumulative impacts analysis identifies the past, present, and probable future 
 
 The [Warehouse CITY tool](https://radicalresearch.shinyapps.io/WarehouseCITY/) is designed to do exactly this. In Spring 2023, my class and helped to add dozens of planned warehouses to the existing warehouses map. This work helped us to add a layer of 'planned and approved warehouses to the tool allowing users to see what warehouses are likely to be built in the near future.
 
-Within 3.1 miles (5 km) of the Airport Gateway project, the tool indicates that there are already 1740+ acres of warehouses. Using the default warehouse floor-area-ratio assumption of 0.65, and a truck trip generation rate of 0.67 trucks per 1000 square feet of warehouses, this results in an estimate of over 30,000 truck trips daily from this region. @fig-AGarea shows the output. You can alter the circle size or move the starting point and see how sensitive the estimate is to the default assumptions. Also, you can zoom in with aerial imagery and see that a few warehouses aren't identified in this analysis.
-
 ## Visualization - Drawing a Polygon
 
 Note, this is a highly manual approach. There better ways to do this systematically and I've developed a tool to start doing that called  the [Polygon Export Tool](https://radicalresearch.shinyapps.io/PolygonExportTool/).  If we were really smart, we could do machine learning to figure out how to do this, but I have not taken the time to build a tool to more fully automate this process.
