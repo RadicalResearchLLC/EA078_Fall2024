@@ -19,6 +19,13 @@ book:
       - maps2.qmd   
       - chartJunk.qmd   
       - assignment1.qmd
+    - part: EJ.qmd  
+      chapters:
+      - EJtheory.qmd
+      - EJcategories.qmd
+      - EJdata.qmd
+      - EJPolygons.qmd
+      - assignment2.qmd
   appendices: 
     - syllabus.qmd  
     - tools.qmd 
