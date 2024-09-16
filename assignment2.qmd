@@ -13,7 +13,7 @@ library(dplyr)
 library(kableExtra)
 
 assignment <- c('Wiki on Environmental Justice', 'EJScreen Exploration',
-                'CalEnviroScreen Exploration', 'Bullard et al., 2013', 'ProPublica - Sacrifice Zones',
+                'CalEnviroScreen Exploration', 'Bullard et al., 2014 - Check Canvas Files', 'ProPublica - Sacrifice Zones',
                 'Importing Data in R - RMRWR - Chapter 5.1 and 5.2')
 due.Date <- c('September 17, 2024', 'September 17, 2024', 'September 19, 2024', 'September 19, 2024', 'September 24, 2024', 'September 26, 2024')
 source <- c('https://en.wikipedia.org/wiki/Environmental_justice',

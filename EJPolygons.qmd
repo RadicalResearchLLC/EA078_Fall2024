@@ -1,32 +1,47 @@
-# EJ - Drawing Polygons for Warehouse CENTRAL {#sec-EJPolygons}
+# EJ - Drawing Polygons for Warehouse downzoning in Mead Valley {#sec-EJPolygons}
 
 ::: {.callout-note appearance="simple"}
 Today we will focus on the practice of creating polygons for use in a warehouse mapping visualization.
 :::
 
-The Tracy Earth Project and Catholic Charities - Stockton Diocese Environmental Justice Program contacted us to help them build a warehouse mapping tool. This lesson will involve some praxis for this class to help build that tool.
+There is an unincorporated community in the County of Riverside called Mead Valley that has about 20,000 residents that has among the highest concentration of warehouse space per capita of any place in the Inland Empire.  Here is some [census info](https://censusreporter.org/profiles/16000US0646646-mead-valley-ca/) on Mead Valley.
 
-First, we'll use a praxis example from last semester to show you how to draw a polygon to overlay on a map (leaflet or ggplot). Then, you'll each be drawing some polygons for the San Joaquin County area.
+The County is currently undergoing an 8-year planning cycle to amend the General Plan for land use called the [Foundation Amendment Cycle](https://planning.rctlma.org/2024-general-plan-foundation-amendment-cycle).  
 
-## Project Example
+I want to make a map to show all the planned changes and indicate how the area is going to change. Also, I'd like us to update the [wiki page on Mead Valley](https://en.wikipedia.org/wiki/Mead_Valley,_California).  
 
-PLACEHOLDER - we'll use a different example.
+## Existing Conditions
 
-![Airport Gateway Land Use Plan](images/siteMap.png){#fig-siteMap}
+The Mead Valley Area Plan is part of the Riverside County General Plan.  A picture of the land use planning is shown in that document in Figure 3, reproduced here.  
+
+![Mead Valley Area Plan](images/MeadValley_plan.png){#fig-siteMap}
+Industrial development is focused around the 215 freeway corridor to the East of the Mead Valley Planning area.  
+
+Let's poke around [Warehouse CITY](https://radicalresearch.shinyapps.io/WarehouseCITY/) to get a sense of the current development and future development.
+
+Notice that the adjacent unincorporated communities of Woodcrest and Lake Mathews have zero warehouses - they are majority white communities.  
 
 ## Cumulative Impacts
 
-Today, I am going to ask you all to help with a cumulative impacts analysis (for the project. Under [CEQA Section 15355](https://ceqaportal.org/tp/AEP%20CEQA%20Portal_Cumulative%20Impacts.pdf), cumulative impacts are defined as 'two or more individual effects, when considered together, are considerable or which compound or increase other environmental impacts...The cumulative impact from several projects is the change in the environment which results from the incremental impact of the project when added to other closely related past, present, and reasonably foreseeable future projects.'
+Today, I am going to ask you all to help with a cumulative impacts analysis for understand the cumulative impacts of the Foundation Amendments. Under [CEQA Section 15355](https://ceqaportal.org/tp/AEP%20CEQA%20Portal_Cumulative%20Impacts.pdf), cumulative impacts are defined as 'two or more individual effects, when considered together, are considerable or which compound or increase other environmental impacts...The cumulative impact from several projects is the change in the environment which results from the incremental impact of the project when added to other closely related past, present, and reasonably foreseeable future projects.'
 
-A cumulative impacts analysis identifies the past, present, and probable future projects that should be included in the EIR.
+A cumulative impacts analysis identifies the past, present, and probable future projects that should be included in environmental analysis.
 
-The [Warehouse CITY tool](https://radicalresearch.shinyapps.io/WarehouseCITY/) is designed to do exactly this. In Spring 2023, my class and helped to add dozens of planned warehouses to the existing warehouses map. This work helped us to add a layer of 'planned and approved warehouses to the tool allowing users to see what warehouses are likely to be built in the near future.
+In Spring 2023, my class helped add dozens of planned warehouses to the existing warehouses map. This work helped us to add a layer of 'planned and approved warehouses to the tool allowing users to see what warehouses are likely to be built in the near future.
+
+In this class, I hope to assess the cumulative impacts of the General Plan amendments to the Mead Valley community to answer three key questions and illustrate them using an environmental data visualization to submit as public comment to the County (planning commission and Board of Supervisors).
+
+1) How are land uses shifting (e.g., from residential to industrial)?
+2) What is the spatial pattern of shifting land-use?
+3) How much land is lost for housing (acres and dwelling units)?
 
 ## Visualization - Drawing a Polygon
 
-Note, this is a highly manual approach. There better ways to do this systematically and I've developed a tool to start doing that called  the [Polygon Export Tool](https://radicalresearch.shinyapps.io/PolygonExportTool/).  If we were really smart, we could do machine learning to figure out how to do this, but I have not taken the time to build a tool to more fully automate this process.
+We're going to draw some polygons. Just like in our first spatial visualization lecture, we're going to identify latitude and longitude pairs for the vertices of the polygon. However, we'll run a couple of `sf` functions on them to transform the individual numbers into a simple features polygon.  
 
-First, we always do the basics, then we'll show the tool and how it can simplify the process - assuming you know where to find files on your machine.
+Note, this is a highly manual approach. There are better ways to do this systematically and I've developed a tool to start doing that called  the [Polygon Export Tool](https://radicalresearch.shinyapps.io/PolygonExportTool/).  
+
+First, we do the most basic way.  After that, we'll show the tool and how it can simplify the process - assuming you know where to find files on your machine.  
 
 ### Load libraries
 
@@ -48,77 +63,75 @@ Find a vertex on the map - input longitude and latitude into a list in the form 
 
 Do that for all the vertex points and bind them together as a list of lists as shown in the code below.
 
+Let's do that for the boundary of Mead Valley.  
+
 ```{r}
-#| label:  List of vertices for Airport Gateway Specific Plan
+#| label:  List of vertices for Mead Valley
 #| warning: false
 #| echo: true
 
-AirportGateway1 <- rbind(
-                    c(-117.26095, 34.11023),
-                    c(-117.26095, 34.10611),
-                    c(-117.25946, 34.10484),
-                    c(-117.24921, 34.10484),
-                    c(-117.24455, 34.1069),
-                    c(-117.22594, 34.1069),
-                    c(-117.21669, 34.1069),
-                    c(-117.21262, 34.1069),
-                    c(-117.21248, 34.10476),
-                    c(-117.20905, 34.10528),
-                    c(-117.20532, 34.10613),
-                    c(-117.1997, 34.10617),
-                    c(-117.1998, 34.1116),
-                    c(-117.20086, 34.11073),
-                    c(-117.2117, 34.11074),
-                    c(-117.21757, 34.109),
-                    c(-117.21757, 34.11032),
-                    c(-117.24932, 34.11012),
-                    c(-117.24932, 34.10847),
-                    c(-117.25412, 34.10847),
-                    c(-117.25412, 34.11012),
-                    c(-117.26095, 34.11023)
+MeadValley <- rbind(
+                    c(-117.319618, 33.865782),
+                    c(-117.261695, 33.86626),
+                    c(-117.23327, 33.8012),
+                    c(-117.24842, 33.80129),
+                    c(-117.24842, 33.804726),
+                    c(-117.25254, 33.804726),
+                    c(-117.25254, 33.80829),
+                    c(-117.26752, 33.80829),
+                    c(-117.26752, 33.80025),
+                    c(-117.31279, 33.80025),
+                    c(-117.31279, 33.82981),
+                    c(-117.32242, 33.83189),
+                    c(-117.32242, 33.83561),
+                    c(-117.33111, 33.83595),
+                    c(-117.33111, 33.85819),
+                    c(-117.32265, 33.8584),
+                    c(-117.32267, 33.86331),
+                    c(-117.319618, 33.865782)
                     )
 ```
 
-Look at the AirportGateway table - it looks like a list of point coordinates.
+Look at the `MeadValley` table in your Environment panel - it looks like a table of point coordinates.
 
-We need one more bit of code to convert that into a polygon. It is a bit complicated.
+We need one more bit of code to convert that into a polygon. It is complicated.
 
 ```{r}
-#| label:  Convert list to polygon for Airport Gateway Specific Plan
+#| label:  Convert list to polygon for Mead Valley
 #| warning: false
 #| echo: true
 
-AirportGatewaySP <- st_sf(
-                      name = 'Airport Gateway Specific Plan Area', 
-                      geom = st_sfc(st_polygon(list(AirportGateway1))), 
+MeadValleyPoly <- st_sf(
+                      name = 'Mead Valley', 
+                      geom = st_sfc(st_polygon(list(MeadValley))), 
                       crs = 4326
                       )
 ```
 
 The `name` is our label for the polygon, so that's easy. The `crs` is the coordinate reference system, in this case WGS84 = 4326 for easy display in `leaflet`.
 
-The `geom` is the geometry. Three functions are applied - `list()` which converts the AirportGateway1 table to a list, `st_polygon()` which returns a polygon from a list of coordinates, and `st_sfc()` which verifies the contents and sets its class.
+The `geom` is the geometry. Three functions are applied - `list()` which converts the MeadValley table to a list, `st_polygon()` which returns a polygon from a list of coordinates, and `st_sfc()` which verifies the contents and sets its class.
 
 ::: {.callout-note appearance="simple"}
 Polygons always have to start and end with the same vertex to be a closed loop.
 :::
 
-Now we should display it to make sure it looks correct. @fig-AirportGatewayLeaflet shows the attempt.
+Now we should display it to make sure it looks correct. @fig-MeadValley shows the polygon with a basic map.
 
 ```{r}
-#| label: fig-AirportGatewayLeaflet 
-#| fig-cap: Airport Gateway polygon check
+#| label: fig-MeadValley 
+#| fig-cap: Mead Valley Polygon Check
 #| echo: true
 
 leaflet()  |>  
   addTiles() |> 
-  addPolygons(data = AirportGatewaySP,
-              color = 'darkred',
-              fillOpacity = 0.6,
-              weight = 1)
+  addPolygons(data = MeadValleyPoly)
 ```
 
-That looks pretty close.
+That looks pretty good, although I skipped a couple of wiggles.
+
+Now let's do a modification of the basic map using `addPolylines()` instead of `addPolygons()` and showing you how to add 
+
 
 Now let's add a warehouse layer showing all planned and approved warehouse projects within California that went through CEQA review from 2020-2024.
 
@@ -140,21 +153,19 @@ Now let's add the existing warehouses to the map. Let's also use `setView()` to 
 
 ```{r}
 #| label: fig-finalWH 
-#| fig-cap: Airport Gateway project in bigger context with less busy map.
+#| fig-cap: Mead Valley warehouses in bigger context with less busy map.
 #| echo: true
 #| eval: true
 
 leaflet() |> 
-  addTiles() |> 
-  addProviderTiles(provider = providers$CartoDB.Positron) |> 
-  addPolygons(data = AirportGatewaySP,
-              color = 'darkred',
-              fillOpacity = 0.6,
-              weight = 1) |> 
+  addProviderTiles(provider = providers$Esri.WorldImagery) |> 
+  addPolylines(data = MeadValleyPoly,
+              color = 'blue',
+              weight = 3) |> 
   addPolygons(data = plannedWH,
-              color = 'brown',
+              color = 'red',
               weight = 1) |> 
-  setView(lng = -117.34, lat = 34.10528, zoom = 11)
+  setView(lng = -117.34, lat = 33.85528, zoom = 11)
 ```
 
 ### In-Class Exercise

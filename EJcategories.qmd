@@ -89,7 +89,7 @@ Also note that I made this dataset smaller by using the `filter()` function to o
 
 WH.url <- 'https://raw.githubusercontent.com/RadicalResearchLLC/WarehouseMap/main/WarehouseCITY/geoJSON/comboFinal.geojson'
 warehouses <- st_read(WH.url) |>  
-  filter(county == 'Riverside') |>  
+  filter(county == 'Riverside County') |>  
   st_transform("+proj=longlat +ellps=WGS84 +datum=WGS84")
 
 ```
@@ -112,8 +112,8 @@ This is geospatial data, so we should put it in an interactive `leaflet` map to 
 #| fig-cap: Basic leaflet warehouse map
 #| echo: true
 
-leaflet() %>% 
-  addTiles() %>% 
+leaflet() |> 
+  addTiles() |> 
   addPolygons(data = warehouses)
 ```
 
@@ -130,12 +130,12 @@ Within the `addPolygons()` function, I set the `color` to brown and the `weight`
 #| fig-cap: Leaflet warehouse map making warehouses brown
 #| echo: true
 
-leaflet() %>% 
-  addTiles() %>% 
+leaflet() |> 
+  addTiles() |>  
   addPolygons(data = warehouses,
-              color = 'brown',
-              weight = 1) %>% 
-  setView(lng = -117.24, lat = 33.875, zoom = 12) #%>% 
+              color = 'black',
+              weight = 1) |> 
+  setView(lng = -117.24, lat = 33.875, zoom = 12) 
 ```
 
 Let's add two more helpful things to orient viewers at a glance.  
@@ -150,17 +150,16 @@ Let's add two more helpful things to orient viewers at a glance.
 #| fig-cap: Leaflet warehouse map near March JPA
 #| echo: true
 
-palWHtype <- colorFactor(palette = c('darkorange', 'red'),
+palWHtype <- colorFactor(palette = c( 'darkred', 'darkorange', 'black'),
                          domain = warehouses$category)
 
-leaflet() %>% 
-  addTiles() %>% 
+leaflet()  |>  
+  addProviderTiles(provider = providers$Esri.WorldImagery) |> # This shows satellite imagery
   addPolygons(data = warehouses,
-              color = ~palWHtype(category),
-              weight = 1) %>% 
-  setView(lng = -117.24, lat = 33.875, zoom = 12) %>% 
-  addProviderTiles(provider = providers$Esri.WorldImagery) %>% 
-  addMiniMap(position = 'bottomleft')
+              color = ~palWHtype(category), #this creates the color categories
+              weight = 1) |> 
+  setView(lng = -117.24, lat = 33.875, zoom = 12) |> #this provides the location and zoom level
+  addMiniMap(position = 'bottomleft') #this adds a minimap
 ```
 
 
