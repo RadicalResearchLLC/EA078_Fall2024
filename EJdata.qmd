@@ -33,7 +33,7 @@ Import the SoCalEJ dataset again, if you don't have it already loaded.
 
 URL.path <- 'https://raw.githubusercontent.com/RadicalResearchLLC/EDVcourse/main/CalEJ4/CalEJ.geoJSON'
 SoCalEJ <- st_read(URL.path) |>  
-  st_transform("+proj=longlat +ellps=WGS84 +datum=WGS84")
+  st_transform(crs = 4326)
 
 ```
 
@@ -54,7 +54,7 @@ Use `filter(...)` to only keep values above or equal to zero. We don't want to i
 #| warning: false
 
 SoCalEJ |>  
-  filter(OzoneP >= 0) |>  
+  filter(OzoneP >= 0) |>  # This selects records with values greater or equal to zero
   ggplot(aes(x = County, y = OzoneP)) +
   geom_boxplot()
 
@@ -81,9 +81,9 @@ This code does three things.
 
 # select socioeconomic indicators and make them narrow - only include counties above 70%
 SoCal_narrow <- SoCalEJ |>  
-  st_set_geometry(value = NULL) |>  
-  pivot_longer(cols = c(5:66), names_to = 'variable', values_to = 'value') |>  
-  filter(value >=0)
+  st_set_geometry(value = NULL) |>  # remove geometry
+  pivot_longer(cols = c(5:66), names_to = 'variable', values_to = 'value') |> #data science table manipulation
+  filter(value >=0) #select only values greater than or equal to zero
 
 ```
 
@@ -110,7 +110,7 @@ Now let's display a box plot with three pollution variables simultaneously using
 #| warning: false
 
 SoCal_narrow |>  
-  filter(variable %in% c('OzoneP', 'DieselPM_P', 'PolBurdP')) |>  
+  filter(variable %in% c('OzoneP', 'DieselPM_P', 'PolBurdP')) |>  # pick three variables
   ggplot(aes(x = County, y = value, fill= variable)) +
   geom_boxplot()
 
@@ -132,10 +132,10 @@ Cool!  Now we are seeing some interesting differences.
 
 SoCal_narrow |>  
   filter(variable %in% c('Hispanic', 'White', 'AfricanAm',
-                         'NativeAm', 'OtherMult', 'AAPI')) |>  
-  ggplot(aes(x = County, y = value, fill= variable)) +
+                         'NativeAm', 'OtherMult', 'AAPI')) |> #select ethnic/racial variables 
+  ggplot(aes(x = County, y = value, fill= variable)) + #show them by county
   geom_boxplot() +
-  theme_bw()
+  theme_bw() 
 
 ```
 
@@ -280,29 +280,6 @@ SoCalEJ |>
 
 Note that `geom_bar()` works well with categorical variables, but doesn't like continuous and numerical values.  
 
-### Exploration and Improvisation
 
-In this section, we are going to follow your interests to generate visualizations improvisationally. Hopefully there will be minimal struggle.  
 
-#### Noodle Zone
 
-```{webr}
-library(ggplot2)
-library(sf)
-```
-
-```{webr}
-URL.path <- 'https://raw.githubusercontent.com/RadicalResearchLLC/EDVcourse/main/CalEJ4/CalEJ.geoJSON'
-SoCalEJ <- st_read(URL.path) |>  
-  st_set_geometry(value = NULL)
-
-```
-
-```{web}
-SoCalEJ |>  
-  filter(County == 'San Bernardino') |>  
-  ggplot(aes(y = ApproxLoc)) +
-  geom_bar() +
-  theme(axis.text = element_text(size = 6)) +
-  labs(y = '', x = 'Count of census tracts')
-```

@@ -39,7 +39,9 @@ In this class, I hope to assess the cumulative impacts of the General Plan amend
 
 We're going to draw some polygons. Just like in our first spatial visualization lecture, we're going to identify latitude and longitude pairs for the vertices of the polygon. However, we'll run a couple of `sf` functions on them to transform the individual numbers into a simple features polygon.  
 
-Note, this is a highly manual approach. There are better ways to do this systematically and I've developed a tool to start doing that called  the [Polygon Export Tool](https://radicalresearch.shinyapps.io/PolygonExportTool/).  
+::: {.callout-note appearance="simple"}
+Note, this is a highly manual approach. There are better ways to do this systematically and I've developed a tool to start doing that called  the [Polygon Export Tool](https://radicalresearch.shinyapps.io/PolygonExportTool/). I will show you how to use that in the next unit, because it requires importing data.
+:::
 
 First, we do the most basic way.  After that, we'll show the tool and how it can simplify the process - assuming you know where to find files on your machine.  
 
@@ -53,6 +55,7 @@ First, we do the most basic way.  After that, we'll show the tool and how it can
 
 library(sf)
 library(leaflet)
+library(dplyr)
 ```
 
 ### Manually Identify the Polygon Vertices.
@@ -64,6 +67,8 @@ Find a vertex on the map - input longitude and latitude into a list in the form 
 Do that for all the vertex points and bind them together as a list of lists as shown in the code below.
 
 Let's do that for the boundary of Mead Valley.  
+
+
 
 ```{r}
 #| label:  List of vertices for Mead Valley
@@ -130,58 +135,98 @@ leaflet()  |>
 
 That looks pretty good, although I skipped a couple of wiggles.
 
-Now let's do a modification of the basic map using `addPolylines()` instead of `addPolygons()` and showing you how to add 
-
+Now let's do a modification of the basic map using `addPolylines()` instead of `addPolygons()` and showing you how to add a few warehouses.  
 
 Now let's add a warehouse layer showing all planned and approved warehouse projects within California that went through CEQA review from 2020-2024.
 
-First import the warehouse dataset.  Let's name this dataset **plannedWH** or something to make it unique.
+First import the warehouse dataset.  Let's name this dataset **warehouses**, just like we did in 8.3.2.2.
 
 ```{r}
 #| echo: true
 #| warning: false
 
-plannedWH.url <- 'https://github.com/RadicalResearchLLC/CEQA_tracker/raw/main/CEQA_WH.geojson'
-plannedWH <- st_read(plannedWH.url) |> 
-  st_transform(crs = 4326) # crs = coordinate reference system and 4326 is WGS84
-
+WH.url <- 'https://raw.githubusercontent.com/RadicalResearchLLC/WarehouseMap/main/WarehouseCITY/geoJSON/comboFinal.geojson'
+warehouses <- st_read(WH.url) |>  
+  st_transform(crs = 4326) |> 
+  filter(county == 'Riverside County')
 ```
 
-Now let's add the existing warehouses to the map. Let's also use `setView()` to zoom in on our area of interest cause San Bernardino County is really big.
+Now let's add the existing warehouses to the map. 
 
-@fig-finalWH
+@fig-addWH
 
 ```{r}
-#| label: fig-finalWH 
+#| label: fig-addWH 
 #| fig-cap: Mead Valley warehouses in bigger context with less busy map.
 #| echo: true
 #| eval: true
 
+palWH <- colorFactor(palette = c('darkred', 'orange', 'black'),
+                     domain = warehouses$category)
+
 leaflet() |> 
-  addProviderTiles(provider = providers$Esri.WorldImagery) |> 
+  addTiles() |> 
   addPolylines(data = MeadValleyPoly,
               color = 'blue',
               weight = 3) |> 
-  addPolygons(data = plannedWH,
-              color = 'red',
-              weight = 1) |> 
-  setView(lng = -117.34, lat = 33.85528, zoom = 11)
+  addPolygons(data = warehouses,
+              color = ~palWH(category),
+              weight = 1) 
 ```
 
-### In-Class Exercise
+It is a map, but the zoom level is not focused on the salient part we're interested in.  We can use the `setView()` function to set the zoom level.  We showed an example of this in lesson 3.  
 
-Placeholder
+@fig-setViewMV
 
-### Planned Warehouses Map for the Central Valley
+```{r}
+#| label: fig-setViewMV 
+#| fig-cap: Mead Valley warehouses zoomed just to the local area.
+#| echo: true
+#| eval: true
 
-[Warehouse CENTRAL](https://radicalresearch.shinyapps.io/WarehouseCENTRAL/)
+leaflet() |> 
+  addTiles() |> 
+  addPolylines(data = MeadValleyPoly,
+              color = 'blue',
+              weight = 3) |> 
+  addPolygons(data = warehouses,
+              color = ~palWH(category),
+              weight = 1) |> 
+  setView(zoom = 12, lat = 33.85, lng = -117.2) ## Add zoom level and map center point
+```
 
-I want to add warehouses for every other part of the Central Valley.  
+This is better, but I want a better underlying tile view.  We can use the `addProviderTiles()` function to replace `addTiles()` to get a different underlying tile map.  Here we will add the `Esri.WorldImagery` layer to see the satellite view.
 
-We need to find land use and assessor parcel datasets for each of the counties and major cities in the Central Valley.
+@fig-providerTile
 
-We have currently pulled in San Joaquin and Stanislaus Counties, and the cities of Tracy, Stockton, Lathrop, and Manteca.
+```{r}
+#| label: fig-providerTile
+#| fig-cap: Mead Valley warehouses zoomed just to the local area with a satellite image tile map
+#| echo: true
+#| eval: true
 
-In approximate order of importance, the counties that need to be targeted are Kern, Sacramento, Fresno, Madera, Tulare, Placer, and Yolo.  
+leaflet() |> 
+  addProviderTiles(provider = providers$Esri.WorldImagery) |> ## We modified this line to change to satellite view  
+  addPolylines(data = MeadValleyPoly,
+              color = 'blue',
+              weight = 3) |> 
+  addPolygons(data = warehouses,
+              color = ~palWH(category),
+              weight = 1,
+              fillOpacity = 0.6) |> 
+  addLegend(data = warehouses,
+            pal = palWH,
+            values = ~category) |> 
+  setView(zoom = 12, lat = 33.85, lng = -117.25) 
+```
 
-Key cities to include are Sacramento, Fresno, Bakersfield, Modesto, Visalia, Merced, Woodland, West Sacramento,
+### Existing Conditions 
+
+1. I went to [Riverside County Mapping Portal](https://gisopendata-countyofriverside.opendata.arcgis.com/) to download the industrial zoned parcels in Mead Valley.  The Boundaries & Sites url has the data that can be used to filter the dataset down to the information needed to create the map.  
+
+2. I used my polygon export tool to draw maps for each General Plan Amendment proposed that is light-industrial or business park. There aren't enough details to show where building parcels will go and two of the projects are reserving some space for other uses (open space or residential). 
+
+### Planned Warehouses map for Mead Valley Foundation plan amendments
+
+![Mead Valley Changes](images/MeadValley_FoundationChanges.png){#fig-foundationChanges}
+![Mead Valley Land Use Changes](images/MeadValleyGPA_Amendments.png){#fig-amendments}
