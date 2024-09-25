@@ -1,0 +1,34 @@
+# Assignments for Unit 3 - Data {#sec-assignment3}
+
+::: {.callout-note appearance="simple"}
+This includes the list of assignments for Unit 3 - Data
+:::
+
+```{r}
+#| label: tbl-unit3assignments
+#| tbl-cap: Assignments from Unit 3
+#| echo: false
+#| warning: false
+library(dplyr)
+library(kableExtra)
+
+assignment <- c(
+  'Earthjustice Press Release on Bloomington Businesss Park',
+  'Intro: Why Data Science Needs Feminism', 
+  'Haley et al., Historical Redlining and Present Air Pollution in US Cities', 
+  'Introduction to Air Quality')
+due.Date <- c('October 1, 2024', 'October 3, 2024', 'October 8, 2024',
+              'October 10, 2024')
+source <- c('https://earthjustice.org/press/2024/judge-orders-san-bernardino-county-to-redo-environmental-review-of-bloomington-business-park',
+'https://data-feminism.mitpress.mit.edu/pub/frfa9szd/release/6', 'https://pubs.acs.org/doi/pdf/10.1021/acs.estlett.1c01012', 'https://scied.ucar.edu/learning-zone/air-quality/what-is-air-quality')
+
+unit3 <- data.frame(assignment, due.Date, source)# %>% 
+
+unit3  |>  mutate(link = cell_spec(assignment, 'html', link = source)) |>  
+  select(-source, -assignment) |> 
+  kableExtra::kable('html', escape = FALSE) |>  
+  kable_styling(bootstrap_options = c('condensed', 'hover'))
+
+```
+
+COMING SOON - Details on Group Project - CCAEJ and Redford Conservancy Air Quality community monitoring grant.

@@ -228,8 +228,6 @@ leaflet() |>
 
 ### Planned Warehouses map for Mead Valley Foundation plan amendments
 
-Maybe I need some text here.
-
 @fig-limeGreen
 
 ![limeGreen](images/MeadValley_FoundationChanges.png){#fig-limeGreen}  
@@ -238,4 +236,7 @@ Maybe I need some text here.
 
 ![Amendments](images/MeadValleyGPA_Amendments.png){#fig-amendments}
 
-I don't know why this keeps breaking.  
+### Planned Warehouses Map with Major Planned Roadway Widenings
+
+
+
