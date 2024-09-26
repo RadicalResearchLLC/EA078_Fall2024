@@ -82,10 +82,11 @@ I think the process is basically the same for Mac and PC, but we will identify t
 
 -   On a PC, right-clicking on a zipped file will bring up a menu that includes an **Extract All** option. Choosing the **Extract All** option brings up a pathname to extract the file to. The default is to extract the zip file to a subfolder named after the zip file.
 
-Again, go to the *Files, Plots, and Packages* panel and check if there is a folder called **calenviroscreen40shpf2021shp** as shown in @fig-panel2
+Again, go to the *Files, Plots, and Packages* panel and check if there is a folder called **calenviroscreen40shpf2021shp** as shown in @fig-directory. 
 
-![Shapefile folder is in the working directory!](images/folder.png){#fig-panel2}
-The `sf` library is used to import geospatial data. The `read_sf()` is great at read and identifying the type of spatial file.
+![Shapefile folder](images/folder.png){#fig-directory}
+  
+The `sf` library is used to import geospatial data. As before, `st_read()` is function used to import geospatial files.
 
 Shapefiles are the [**esri**](https://www.esri.com/en-us/home) propietary geospatial format and are very common.
 
@@ -234,12 +235,15 @@ I have not yet found a reliable method to get this to work every time on Macs an
 
 ## Exercise 1.
 
-1.  Go to the [Environmental Justice Index](https://experience.arcgis.com/experience/10788c3e860d489e9e8a63a2238bb63d) Accessibility Tool.\
+1.  Go to the [Environmental Justice Index](https://experience.arcgis.com/experience/10788c3e860d489e9e8a63a2238bb63d) Accessibility Tool.
 2.  Pick a state from the dropdown menu.
 3.  Press the **Apply** button
-4.  An **Actions** button should appear; @fig-Action shows where that is. Press the Actions button, select *Export All* and choose **Export to geoJSON**.
+4.  An **Actions** button should appear; @fig-Action shows where that is. Press the Actions button, select *Export All* and choose **Export to geoJSON**.  
 
-![Action button](images/Action.png){#fig-Action}  
+@fig-Action  
+
+![ActionButton](images/Action.png){#fig-Action}  
+  
 5. A file named **Environmental Justice Index 2022 result.geojson** should appear in your default download folder.  
 6. Move the **Environmental Justice Index 2022 result.geojson** file to the working directory.  
 7. Check the *Files* panel. Is **Environmental Justice Index 2022 result.geojson** there?   

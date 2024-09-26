@@ -15,7 +15,6 @@ Load `tidyverse`, `sf`, `leaflet`, and `htmltools`.
 library(tidyverse)
 library(sf)
 library(leaflet)
-library(htmltools)
 
 ```
     

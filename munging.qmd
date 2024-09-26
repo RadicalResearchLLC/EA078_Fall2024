@@ -109,7 +109,7 @@ SoCal_narrow |>
 - `select()` can be applied to subsets column number or name.
 - `select()` also has some pattern matching helpers.  
 
-@sec-EJTheory included an example of using `select()` on the SoCalEJ dataset. The raw dataset is MESSY! 
+@sec-EJtheory included an example of using `select()` on the SoCalEJ dataset. The raw dataset is MESSY! 
 
 ### [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html)
 
@@ -121,7 +121,7 @@ This is a great function for synthesizing information, transformations, and comb
 - creating a rate or normalizing data - use `mutate()`
 - need a new variable or category - use `mutate()`
 
-I used `mutate()` to create a decimal date function for our CH~4~ visualizations in @sec-import.  
+I used `mutate()` to create a decimal date function for our CH~4~ visualizations in @sec-import2.  
 
 Let's use `mutate()` to convert the estimate the census tract population of Hispanic and African American groups in SoCalEJ.  In SoCalEJ, we have a variable called `TotPop19`, which is the total population in 2019. We also have the percentage of population by census tract in each ethnic group.  We can use mutate to create new variables.  
 
