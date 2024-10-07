@@ -15,12 +15,13 @@ library(kableExtra)
 assignment <- c(
   'Earthjustice Press Release on Bloomington Businesss Park',
   'Intro: Why Data Science Needs Feminism', 
-  'Haley et al., Historical Redlining and Present Air Pollution in US Cities', 
-  'Introduction to Air Quality')
+  'Haley et al., Historical Redlining and Present Air Pollution in US Cities',   'Introduction to Air Quality',
+  'tidycensus - read basic usage and spatial data sections')
 due.Date <- c('October 1, 2024', 'October 3, 2024', 'October 8, 2024',
-              'October 10, 2024')
+              'October 10, 2024', 'October 17, 2024')
 source <- c('https://earthjustice.org/press/2024/judge-orders-san-bernardino-county-to-redo-environmental-review-of-bloomington-business-park',
-'https://data-feminism.mitpress.mit.edu/pub/frfa9szd/release/6', 'https://pubs.acs.org/doi/pdf/10.1021/acs.estlett.1c01012', 'https://scied.ucar.edu/learning-zone/air-quality/what-is-air-quality')
+'https://data-feminism.mitpress.mit.edu/pub/frfa9szd/release/6', 'https://pubs.acs.org/doi/pdf/10.1021/acs.estlett.1c01012', 'https://scied.ucar.edu/learning-zone/air-quality/what-is-air-quality',
+'https://walker-data.com/tidycensus/index.html')
 
 unit3 <- data.frame(assignment, due.Date, source)# %>% 
 
@@ -31,4 +32,34 @@ unit3  |>  mutate(link = cell_spec(assignment, 'html', link = source)) |>
 
 ```
 
-COMING SOON - Details on Group Project - CCAEJ and Redford Conservancy Air Quality community monitoring grant.
+## Group Presentation
+
+Due to present in class on **October 29, 2024**. Teams of approximately 4 students. End product is a 6-10 minute presentation in class using slides. It will include descriptions of the plan for individual and group data visualizations.
+
+::: {.callout-note appearance="warning"}
+Absence from in-class presentation will need a Doctor's note or similar documentation to be able to make-up this assignment during Office Hours.
+:::
+
+It should include approximately:
+
+-   2 minutes of introduction and background
+-   2 minutes defining the scope of your Project
+    -   Spatial extent (e.g., state of California)
+    -   Temporal extent (i.e., year-range)
+    -   Environmental variable(s) to be examined (air pollution, water, radiation, climate, etc.)
+-   2 minutes on what the team's goal is and what data will be acquired for communicating that story.
+-   2 minutes on the visualization strategies that will help tell the story. What will the project look like (hand-drawn sketches or design mock-ups are fine).
+
+### Grading for Group Presentation Project
+
+Total of 150 points.
+
+-   30 points from other group members (participation grade - anonymous)
+-   60 points for quality of presentation slides
+    -   10 points for spelling/grammar/formatting
+    -   30 points for content, text, and visualizations
+    -   20 points for covering 4 topic areas
+-   60 points for presentation
+    -   20 points for covering 4 topic areas
+    -   10 points for having approximately equal talking time among team members
+    -   30 points for content mastery and for answering questions from classmates and Professor Mike
