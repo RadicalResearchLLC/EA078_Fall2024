@@ -1,0 +1,111 @@
+# Joins {#sec-joins}
+
+::: {.callout-note appearance="simple"}
+Today is going to be a few examples riffing on class Group Projects
+:::
+  
+## Load libraries
+
+```{r}
+library(tidyverse)
+library(sf)
+library(leaflet)
+```
+
+## California Place Boundaries  
+
+All of the groups are using data from SoCal.  We could grab a dataset from  [SCAG](https://gisdata-scag.opendata.arcgis.com/datasets/city-boundaries-scag-region/explore).  This data is from 2019 though, so boundaries may not be up-to-date.
+
+However, instead we're going to learn a different approach and import the data using the `tigris` package.  Hat tip and extra credit to Anna for using this in her assignment.
+
+First, we need to install the new package.
+
+```{r}
+#| eval: false
+install.packages('tigris')
+```
+
+Then, once installed, we load the library.
+
+```{r}
+library(tigris)
+```
+
+As always, there's a bunch of cool functions.  The one we will use is called `places()`.  It pulls cities and census designated places geospatial information.
+
+In this example, I 
+
+
+
+```{r}
+#| label: read, and transform steps for SoCal Cities
+#| echo: true
+
+#read the data
+CA_places <- places(state = 'CA', cb = T, #pull for California, lower detail level
+                    year = 2022) |> 
+  st_transform(crs = 4326)
+  
+head(CA_places)
+
+```
+
+@fig-CA_places shows a map of Cities using `leaflet`.
+
+```{r}
+#| label: fig-CA_places
+#| echo: true
+#| warning: false
+#| fig-cap: California cities and census designated place boundaries
+
+leaflet() |> 
+  addTiles() |> 
+  addPolylines(data = CA_places)
+```
+
+That's just too much information.  For the Fontana and Bloomington projects, we probably want to just show those two communities. Let's use the `%in%` operator to `filter()` those two places from the list.
+
+@fig-IE_leaflet shows a leaflet map of the cities, zoomed into the main valley.
+
+```{r}
+#| label: fig-IE_leaflet
+#| echo: true
+#| warning: false
+#| fig-cap: Fontana and Bloomington on a leaflet map
+#| 
+
+FontanaBloomington <- CA_places |> 
+  filter(NAME %in% c('Fontana', 'Bloomington'))
+
+  leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = FontanaBloomington,
+              color = 'black',
+              weight = 1,
+              fillOpacity = 0.3,
+              label = ~NAME)
+```
+
+### Database Joins - data science lesson #1
+
+Dataset `CA_places` has the geospatial information on city and census designated place boundaries. Some of the other datasets you are using have the information you would like to compare.  How can we merge or join these disparate data layers for visualization and analysis?
+                          
+There are two types of joins that can help to merge disparate datasets.
+
+The first type of join is based on unique records in both datasets.  If you have a column in dataset *A* and it has some matching records in dataset *B*, there are ways to join the two datasets.
+
+Here's all the permutations.                                                                                                                                                        -   `inner_join()` - keep only records present in both dataset A and B.                   -   `left_join()` - keep **all** records from the dataset A and only matching variables from B. Fill missing with **NA**.
+-   `right_join()` - keep **all** records from the dataset B and only matching variables from A. Fill missing with **NA**.
+-   `full_join()` - keep **all** records from A and B - fill **NA** in any records where dataset is missing from one of the datasets.                                              -   `anti_join()` - keep **only** records from A that don't occur in B.
+
+The example below shows Venn diagrams of all the permutations.
+
+![Join Venn Diagrams - credit **Tavareshugo** github](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/fig/07-dplyr_joins.svg)
+
+## Spatial Joins - Data science lesson #2 
+
+More interesting and probably more useful for your group projects are spatial joins.
+
+Spatial joins use geospatial information to identify overlapping geometries in space.  Thus, if one has two geospatial datasets, one can quickly identify intersections of interest.
+
+**MORE TO COME SOON**

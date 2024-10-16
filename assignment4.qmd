@@ -1,0 +1,47 @@
+# Assignments for Unit 4 - Projects {#sec-assignment4}
+
+::: {.callout-note appearance="simple"}
+This includes the list of assignments for Unit 4 associated with Projects.
+:::
+
+## Individual Visualization
+
+Due by email/canvas at 9:45 AM on **November 12, 2024**.  
+
+Assignment is a single visualization of data on the team's chosen topic. Assignment should provide an exported visualization `.png, .pdf, .html` and the `.R script` used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.  
+
+Describe a minimum of three features that were selected to explore the dataset, either in the `.R script` or in the email.  Bullet points are fine.  
+
+## Grading for Individual Visualization Project
+
+Total of 200 points
+
+* 20 points for data source attribution 
+* 30 points for description of three features
+* 60 points for three features implementation in visualization
+* 45 points for aesthetics
+* 45 points for labels, legend, and in-visualization annotation 
+
+## Group Visualization
+
+**Due Date**
+
+A group presentation on the progress to date will occur on **December 3rd, 2024**.  Final group visualization will be due **December 10th, 2024** at noon (PST).    
+
+Assignment is a visualization on the team's chosen topic. Assignment should provide an exported visualization `.png, .pdf, .html` and the `.R script` used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.  
+
+Describe the features that were selected to explore the dataset, either in the `.R script` or in the email. Bullet points are fine.   
+
+Document in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that. 
+
+## Grading for Group Visualization Project
+
+Total of 250 points
+
+* 30 points for data source attribution 
+* 30 points for description of features
+* 70 points for features implementation in visualization(s)
+* 30 points for aesthetics
+* 30 points for labels, legend, and in-visualization annotation 
+* 30 points for the visualization providing insight into the group theme
+* 30 points for group participation - (team grading)
