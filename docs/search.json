@@ -741,11 +741,143 @@
     "href": "assignment3.html",
     "title": "16  Assignments for Unit 3 - Data",
     "section": "",
-    "text": "This includes the list of assignments for Unit 3 - Data\n\n\n\n\n\n\nTable 16.1: Assignments from Unit 3\n\n\n\n\ndue.Date\nlink\n\n\n\nOctober 1, 2024\nEarthjustice Press Release on Bloomington Businesss Park\n\n\nOctober 3, 2024\nIntro: Why Data Science Needs Feminism\n\n\nOctober 8, 2024\nHaley et al., Historical Redlining and Present Air Pollution in US Cities\n\n\nOctober 10, 2024\nIntroduction to Air Quality\n\n\n\n\n\n\n\n\nCOMING SOON - Details on Group Project - CCAEJ and Redford Conservancy Air Quality community monitoring grant.",
+    "text": "16.1 Group Presentation\nDue to present in class on October 29, 2024. Teams of approximately 4 students. End product is a 6-10 minute presentation in class using slides. It will include descriptions of the plan for individual and group data visualizations.\nIt should include approximately:",
     "crumbs": [
       "Home",
       "Unit 3: Data",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Assignments for Unit 3 - Data</span>"
+    ]
+  },
+  {
+    "objectID": "assignment3.html#group-presentation",
+    "href": "assignment3.html#group-presentation",
+    "title": "16  Assignments for Unit 3 - Data",
+    "section": "",
+    "text": "Note\n\n\n\nAbsence from in-class presentation will need a Doctor’s note or similar documentation to be able to make-up this assignment during Office Hours.\n\n\n\n\n2 minutes of introduction and background\n2 minutes defining the scope of your Project\n\nSpatial extent (e.g., state of California)\nTemporal extent (i.e., year-range)\nEnvironmental variable(s) to be examined (air pollution, water, radiation, climate, etc.)\n\n\n2 minutes on what the team’s goal is and what data will be acquired for communicating that story.\n2 minutes on the visualization strategies that will help tell the story. What will the project look like (hand-drawn sketches or design mock-ups are fine).\n\n\n16.1.1 Grading for Group Presentation Project\nTotal of 150 points.\n\n30 points from other group members (participation grade - anonymous)\n60 points for quality of presentation slides\n\n10 points for spelling/grammar/formatting\n30 points for content, text, and visualizations\n20 points for covering 4 topic areas\n\n\n60 points for presentation\n\n20 points for covering 4 topic areas\n10 points for having approximately equal talking time among team members\n30 points for content mastery and for answering questions from classmates and Professor Mike",
+    "crumbs": [
+      "Home",
+      "Unit 3: Data",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Assignments for Unit 3 - Data</span>"
+    ]
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "17  Research sites",
+    "section": "",
+    "text": "17.1 Group Project Topics",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Research sites</span>"
+    ]
+  },
+  {
+    "objectID": "research.html#group-project-topics",
+    "href": "research.html#group-project-topics",
+    "title": "17  Research sites",
+    "section": "",
+    "text": "Air Quality Infographic - focused on PM2.5 and CO2\nPM2.5 Concentrations in and around Fontana and Bloomington\nPM2.5 Emissions sources in and around Fontana and Bloomington\nSpatial Visualization of Road Widening and Warehouse Growth in IE (or just one county - Riverside or San Bernardino)\nSocioeconomic Statistics of Riverside County Warehouses",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Research sites</span>"
+    ]
+  },
+  {
+    "objectID": "research.html#overview-of-the-iqair-ccaej-redford-conservancy-monitoring-study",
+    "href": "research.html#overview-of-the-iqair-ccaej-redford-conservancy-monitoring-study",
+    "title": "17  Research sites",
+    "section": "17.2 Overview of the IQAir CCAEJ Redford Conservancy Monitoring Study",
+    "text": "17.2 Overview of the IQAir CCAEJ Redford Conservancy Monitoring Study\nFrom the grant application, which is in Canvas.\nCCAEJ will engage with the community of South Fontana/Bloomington to collaborate on an inclusive, community-centered planning process that can maximize the benefits of the real-time air monitoring data collection, analysis and advocacy steps. The planning process will involve participatory decision-making that promotes involvement and empowers a diverse segment of the populace, with a view of actively involving lower income populations and communities of color, empowering those most affected to shape the decisions that will impact their lives. Preliminary, mid-project and post-project semi-structured interviews will be conducted with residents (N:5-10) to identify understandings of pollutants and causes, and subjective experiences with air quality issues, the planning process, and advocacy efforts.\nThe Redford Conservancy will assist with data analysis and visualization, providing mapping in GIS, creating maps of areas as well as visualization of the findings of the research over the course of the grants. The RRC will work with CCAEJ and IQAir Foundation to tailor visualizations to appropriate public communication in both English and in Spanish. In addition, RRC will gather ethnographic data through interviews to round out local knowledge of air quality perceptions, understandings, and experience. Faculty and students will engage in research in both English and Spanish, translating findings into English.\nGoals:\n\nEducate and empower identified community members living within the targeted area to recognize air quality issues in relation to their community and the consequential health risks.\nDevelop a network of air quality monitors in identified communities to fill the air quality data gap within targeted areas.\nGenerate data and a better understanding of air quality issues that the local community and regulators can use to spur enforcement or regulatory action.\nUse the information generated by the sensor network to improve community health by letting residents know when to limit their exposure in certain areas or during different times when air pollution is elevated.\n\n\n17.2.1 Infographic Sources\n\nAir Quality Index\nAir Quality Communication Presentation\nBest Practices for Communicating sensor data\nIQAir Foundation\n\nNext Tuesday we’ll cover Air Quality 101 as part of our lecture.\n\n\n17.2.2 Concentrations of PM2.5 and CO2\n\nPM2.5 data sources include regulatory data and sensor data.\nIQAir API - requires registration and has limits.\nPurpleAir\nEPA AQS API - check Canvas, I will put all the PM2.5 concentration data for 2020-2024 for Riverside and San Bernardino Counties on there.\n\nNOAA GMD - also look at the way we pulled data in 1.5 and for methane in 12.2.5.\n\n\n\n17.2.3 Emissions of PM2.5 and CO2\n#fig-SCAQMD_EI shows the total emissions by source category.\n\n\n\n\n\n\nFigure 17.1: Sources of PM2.5\n\n\n\n\nSCAQMD PM Air Quality Management Plan Ch.3 Emissions Inventory\nSCAQMD Facilities\nEMFAC2021 on-road and off-road database\nRestaurants? I didn’t find a good open source dataset for restaurant info. There’s almost certainly a way to get this via OpenStreetMap. Needs more research.\nRoads and Rail - possibly from TIGRIS or from Caltrans\n\n\n\n17.2.4 Road Widening Projects and Warehouse Data\n\nRiverside County\nSan Bernardino County - check current, completed, planning, and under construction.\nSee 10.3.2 for an example of the warehouse dataset.\n\n\n\n17.2.5 Socioeconomic data\n\ntidycensus has the most recent data\nSoCalEJ has census block level socioeconomic data from 2015-2019.",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Research sites</span>"
+    ]
+  },
+  {
+    "objectID": "joins.html",
+    "href": "joins.html",
+    "title": "18  Joins",
+    "section": "",
+    "text": "18.1 Load libraries\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(sf)\n\nLinking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.3.1; sf_use_s2() is TRUE\n\nlibrary(leaflet)",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
+    "objectID": "joins.html#california-place-boundaries",
+    "href": "joins.html#california-place-boundaries",
+    "title": "18  Joins",
+    "section": "\n18.2 California Place Boundaries",
+    "text": "18.2 California Place Boundaries\nAll of the groups are using data from SoCal. We could grab a dataset from SCAG. This data is from 2019 though, so boundaries may not be up-to-date.\nHowever, instead we’re going to learn a different approach and import the data using the tigris package. Hat tip and extra credit to Anna for using this in her assignment.\nFirst, we need to install the new package.\n\ninstall.packages('tigris')\n\nThen, once installed, we load the library.\n\nlibrary(tigris)\n\nTo enable caching of data, set `options(tigris_use_cache = TRUE)`\nin your R script or .Rprofile.\n\n\nAs always, there’s a bunch of cool functions. The one we will use is called places(). It pulls cities and census designated places geospatial information.\nIn this example, I\n\n#read the data\nCA_places &lt;- places(state = 'CA', cb = T, #pull for California, lower detail level\n                    year = 2022) |&gt; \n  st_transform(crs = 4326)\n\n\n  |                                                                            \n  |                                                                      |   0%\n  |                                                                            \n  |=                                                                     |   1%\n  |                                                                            \n  |==                                                                    |   2%\n  |                                                                            \n  |==                                                                    |   3%\n  |                                                                            \n  |===                                                                   |   4%\n  |                                                                            \n  |===                                                                   |   5%\n  |                                                                            \n  |====                                                                  |   5%\n  |                                                                            \n  |=====                                                                 |   7%\n  |                                                                            \n  |=====                                                                 |   8%\n  |                                                                            \n  |======                                                                |   8%\n  |                                                                            \n  |======                                                                |   9%\n  |                                                                            \n  |=======                                                               |  10%\n  |                                                                            \n  |========                                                              |  12%\n  |                                                                            \n  |=========                                                             |  13%\n  |                                                                            \n  |==========                                                            |  14%\n  |                                                                            \n  |===========                                                           |  15%\n  |                                                                            \n  |===========                                                           |  16%\n  |                                                                            \n  |============                                                          |  17%\n  |                                                                            \n  |=============                                                         |  18%\n  |                                                                            \n  |=============                                                         |  19%\n  |                                                                            \n  |==============                                                        |  20%\n  |                                                                            \n  |===============                                                       |  21%\n  |                                                                            \n  |================                                                      |  23%\n  |                                                                            \n  |=================                                                     |  24%\n  |                                                                            \n  |==================                                                    |  26%\n  |                                                                            \n  |===================                                                   |  27%\n  |                                                                            \n  |====================                                                  |  28%\n  |                                                                            \n  |====================                                                  |  29%\n  |                                                                            \n  |=====================                                                 |  30%\n  |                                                                            \n  |======================                                                |  31%\n  |                                                                            \n  |======================                                                |  32%\n  |                                                                            \n  |=======================                                               |  33%\n  |                                                                            \n  |========================                                              |  34%\n  |                                                                            \n  |========================                                              |  35%\n  |                                                                            \n  |=========================                                             |  36%\n  |                                                                            \n  |==========================                                            |  37%\n  |                                                                            \n  |===========================                                           |  38%\n  |                                                                            \n  |============================                                          |  40%\n  |                                                                            \n  |=============================                                         |  41%\n  |                                                                            \n  |==============================                                        |  43%\n  |                                                                            \n  |================================                                      |  46%\n  |                                                                            \n  |=================================                                     |  47%\n  |                                                                            \n  |=================================                                     |  48%\n  |                                                                            \n  |===================================                                   |  49%\n  |                                                                            \n  |===================================                                   |  51%\n  |                                                                            \n  |=====================================                                 |  52%\n  |                                                                            \n  |=====================================                                 |  54%\n  |                                                                            \n  |=======================================                               |  55%\n  |                                                                            \n  |=======================================                               |  56%\n  |                                                                            \n  |============================================                          |  63%\n  |                                                                            \n  |=============================================                         |  64%\n  |                                                                            \n  |=============================================                         |  65%\n  |                                                                            \n  |==============================================                        |  65%\n  |                                                                            \n  |==============================================                        |  66%\n  |                                                                            \n  |================================================                      |  68%\n  |                                                                            \n  |================================================                      |  69%\n  |                                                                            \n  |==================================================                    |  71%\n  |                                                                            \n  |===================================================                   |  73%\n  |                                                                            \n  |====================================================                  |  74%\n  |                                                                            \n  |=====================================================                 |  76%\n  |                                                                            \n  |======================================================                |  77%\n  |                                                                            \n  |=======================================================               |  79%\n  |                                                                            \n  |========================================================              |  80%\n  |                                                                            \n  |=========================================================             |  81%\n  |                                                                            \n  |==========================================================            |  83%\n  |                                                                            \n  |===========================================================           |  85%\n  |                                                                            \n  |=============================================================         |  87%\n  |                                                                            \n  |===============================================================       |  90%\n  |                                                                            \n  |=================================================================     |  93%\n  |                                                                            \n  |==================================================================    |  94%\n  |                                                                            \n  |===================================================================   |  96%\n  |                                                                            \n  |====================================================================  |  97%\n  |                                                                            \n  |======================================================================| 100%\n\nhead(CA_places)\n\nSimple feature collection with 6 features and 12 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: -120.5913 ymin: 33.05765 xmax: -116.9939 ymax: 35.22005\nGeodetic CRS:  WGS 84\n  STATEFP PLACEFP  PLACENS         AFFGEOID   GEOID         NAME\n1      06   55156 02411359 1600000US0655156 0655156     Palmdale\n2      06   22804 02410455 1600000US0622804 0622804    Escondido\n3      06   02924 02409738 1600000US0602924 0602924        Arvin\n4      06   16350 02410232 1600000US0616350 0616350       Corona\n5      06   43224 02410875 1600000US0643224 0643224 Los Alamitos\n6      06   31414 02410672 1600000US0631414 0631414    Guadalupe\n           NAMELSAD STUSPS STATE_NAME LSAD     ALAND AWATER\n1     Palmdale city     CA California   25 274705334 629569\n2    Escondido city     CA California   25  96726218 276445\n3        Arvin city     CA California   25  12482061      0\n4       Corona city     CA California   25 103320711  53926\n5 Los Alamitos city     CA California   25  10380819 161830\n6    Guadalupe city     CA California   25   3394103  10948\n                        geometry\n1 MULTIPOLYGON (((-118.2877 3...\n2 MULTIPOLYGON (((-117.0237 3...\n3 MULTIPOLYGON (((-118.8511 3...\n4 MULTIPOLYGON (((-117.673 33...\n5 MULTIPOLYGON (((-118.093 33...\n6 MULTIPOLYGON (((-120.5912 3...\n\n\nFigure 18.1 shows a map of Cities using leaflet.\n\nleaflet() |&gt; \n  addTiles() |&gt; \n  addPolylines(data = CA_places)\n\n\n\n\n\n\nFigure 18.1: California cities and census designated place boundaries\n\n\n\nThat’s just too much information. For the Fontana and Bloomington projects, we probably want to just show those two communities. Let’s use the %in% operator to filter() those two places from the list.\nFigure 18.2 shows a leaflet map of the cities, zoomed into the main valley.\n\nFontanaBloomington &lt;- CA_places |&gt; \n  filter(NAME %in% c('Fontana', 'Bloomington'))\n\n  leaflet() |&gt; \n  addTiles() |&gt; \n  addPolygons(data = FontanaBloomington,\n              color = 'black',\n              weight = 1,\n              fillOpacity = 0.3,\n              label = ~NAME)\n\n\n\n\n\n\nFigure 18.2: Fontana and Bloomington on a leaflet map\n\n\n\n\n18.2.1 Database Joins - data science lesson #1\nDataset CA_places has the geospatial information on city and census designated place boundaries. Some of the other datasets you are using have the information you would like to compare. How can we merge or join these disparate data layers for visualization and analysis?\nThere are two types of joins that can help to merge disparate datasets.\nThe first type of join is based on unique records in both datasets. If you have a column in dataset A and it has some matching records in dataset B, there are ways to join the two datasets.\nHere’s all the permutations. - inner_join() - keep only records present in both dataset A and B. - left_join() - keep all records from the dataset A and only matching variables from B. Fill missing with NA. - right_join() - keep all records from the dataset B and only matching variables from A. Fill missing with NA. - full_join() - keep all records from A and B - fill NA in any records where dataset is missing from one of the datasets. - anti_join() - keep only records from A that don’t occur in B.\nThe example below shows Venn diagrams of all the permutations.\n\n\nJoin Venn Diagrams - credit Tavareshugo github",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
+    "objectID": "joins.html#spatial-joins---data-science-lesson-2",
+    "href": "joins.html#spatial-joins---data-science-lesson-2",
+    "title": "18  Joins",
+    "section": "\n18.3 Spatial Joins - Data science lesson #2",
+    "text": "18.3 Spatial Joins - Data science lesson #2\nMore interesting and probably more useful for your group projects are spatial joins.\nSpatial joins use geospatial information to identify overlapping geometries in space. Thus, if one has two geospatial datasets, one can quickly identify intersections of interest.\nMORE TO COME SOON",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Joins</span>"
+    ]
+  },
+  {
+    "objectID": "assignment4.html",
+    "href": "assignment4.html",
+    "title": "19  Assignments for Unit 4 - Projects",
+    "section": "",
+    "text": "19.1 Individual Visualization\nDue by email/canvas at 9:45 AM on November 12, 2024.\nAssignment is a single visualization of data on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.\nDescribe a minimum of three features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+    ]
+  },
+  {
+    "objectID": "assignment4.html#grading-for-individual-visualization-project",
+    "href": "assignment4.html#grading-for-individual-visualization-project",
+    "title": "19  Assignments for Unit 4 - Projects",
+    "section": "19.2 Grading for Individual Visualization Project",
+    "text": "19.2 Grading for Individual Visualization Project\nTotal of 200 points\n\n20 points for data source attribution\n30 points for description of three features\n60 points for three features implementation in visualization\n45 points for aesthetics\n45 points for labels, legend, and in-visualization annotation",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+    ]
+  },
+  {
+    "objectID": "assignment4.html#group-visualization",
+    "href": "assignment4.html#group-visualization",
+    "title": "19  Assignments for Unit 4 - Projects",
+    "section": "19.3 Group Visualization",
+    "text": "19.3 Group Visualization\nDue Date\nA group presentation on the progress to date will occur on December 3rd, 2024. Final group visualization will be due December 10th, 2024 at noon (PST).\nAssignment is a visualization on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.\nDescribe the features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.\nDocument in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that.",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+    ]
+  },
+  {
+    "objectID": "assignment4.html#grading-for-group-visualization-project",
+    "href": "assignment4.html#grading-for-group-visualization-project",
+    "title": "19  Assignments for Unit 4 - Projects",
+    "section": "19.4 Grading for Group Visualization Project",
+    "text": "19.4 Grading for Group Visualization Project\nTotal of 250 points\n\n30 points for data source attribution\n30 points for description of features\n70 points for features implementation in visualization(s)\n30 points for aesthetics\n30 points for labels, legend, and in-visualization annotation\n30 points for the visualization providing insight into the group theme\n30 points for group participation - (team grading)",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
@@ -1078,6 +1210,28 @@
     "crumbs": [
       "Home",
       "Unit 3: Data"
+    ]
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Unit 4: Special Projects",
+    "section": "",
+    "text": "Projects\nIn this unit, we will focus on the topics of interest for the class projects. I will provide a basic overview of the topic areas, but the class will spend most of the time leading the research. Three graded assignments are associated with this section.",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects"
+    ]
+  },
+  {
+    "objectID": "projects.html#projects",
+    "href": "projects.html#projects",
+    "title": "Unit 4: Special Projects",
+    "section": "",
+    "text": "Group presentation - groups of four\nIndividual visualization - individually developed prototypes on the theme of the group.\nGroup project - groups of four",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects"
     ]
   }
 ]
