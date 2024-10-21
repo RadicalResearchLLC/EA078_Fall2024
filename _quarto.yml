@@ -36,6 +36,7 @@ book:
     - part: projects.qmd
       chapters:
       - research.qmd 
+      - AirQuality.qmd  
       - joins.qmd  
       - assignment4.qmd
   appendices: 

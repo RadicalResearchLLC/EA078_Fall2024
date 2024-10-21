@@ -1,0 +1,70 @@
+# Air Quality {#sec-AirQuality}
+
+::: {.callout-note appearance="simple"}
+Today is going to be the basics of Air Quality.
+:::
+
+## Layers of the Atmosphere
+
+The atmospheric layers are characterized by differences in average temperature and pressure that define boundaries.
+
+We live in the troposphere and air quality problems associated with people breathing are all there. The ozone hole is in the stratosphere. Stuff going on above the stratosphere may as well be in outer space.
+
+@fig-layers shows the temperature profile of the atmosphere.
+
+```{r}
+#| label: fig-layers
+#| echo: TRUE
+#| fig-cap: 'NOAA Atmospheric Layers - from https://www.noaa.gov/jetstream/atmosphere'
+#| fig-align: center
+
+
+knitr::include_graphics('https://www.noaa.gov/sites/default/files/2023-05/atmprofile.jpg')
+
+```
+
+## Composition of the Atmosphere
+
+The atmosphere is mostly molecular nitrogen (N~2~) at 78% and molecular oxygen (O~2~) at 21%.  Argon is just under 1%. Water vapor (H~2~O) is at 0.4%.  
+
+Everything else is at trace levels - less than 0.1%. Carbon dioxide (CO~2~) is at 0.042%. A bunch of the noble gases (Ne, He, Kr, Xe), methane, and a few other pollutants like ozone and carbon monoxide are at part per million levels.  
+
+See: [NOAA](https://www.noaa.gov/jetstream/atmosphere) for a quantitative table of the main components of the atmosphere.  
+
+## Chemistry of the Atmosphere 
+
+Molecular nitrogen and oxygen are pretty unreactive, but sometimes they get zapped with sufficient energy from the sun's photons or lightning to start chemical reactions.  
+
+Atmospheric constituents that are chemically stable and long-lived get transported long-distances and become well-mixed over long-distances.  Constituents that are short-lived and/or chemically reactive have sharp gradients in concentrations.  
+
+@fig-lifetime from *Atmospheric Chemistry and Physics* illustrates this idea.
+
+![Senfeld and Pandis Figure 1.17](https://www.researchgate.net/profile/Ryan-Sullivan-4/publication/280384130/figure/fig1/AS:362705841082368@1463487219029/Spatial-and-temporal-scales-of-variability-of-various-atmospheric-species-Reproduced.png){#fig-lifetime}
+
+## Let's talk about Particulate Matter
+
+This is a decent overview from [Urban Emissions Info](https://urbanemissions.info/blog-pieces/what-is-particulate-matter/).
+
+Let's go there and see how they discuss it.  
+
+Here's the [US EPA](https://www.epa.gov/pm-pollution/particulate-matter-pm-basics) and [California Air Resources Board](https://ww2.arb.ca.gov/resources/inhalable-particulate-matter-and-health) pages.
+
+Here's a complicated paper comparing particulates in six major [metropolitan areas](https://www.tandfonline.com/doi/full/10.1080/15275922.2024.2366796#d1e806).
+
+And here's a complicated [Nature paper](https://www.nature.com/articles/s41370-023-00623-0) that shows that within metropolitan area spatial variability in concentration (i.e. intra-urban) is smaller by at least a factor of 2 than between metropolitan area variations (i.e. inter-urban).  
+
+
+### PM~2.5~ emissions sources you can see
+
+- [Diesel PM](https://ww2.arb.ca.gov/resources/overview-diesel-exhaust-and-health) from trucks, locomotives, cargo-handling equipment, generators, and construction equipment - Wood/vegetation burning from wildfires or fireplaces.
+- [Barbecue, grilling, smoking](https://molekule.com/blogs/all/bbq-smoke-bad-for-health)
+- Cigarettes, vaping, pipes, etc.
+- Industrial smokestacks (sometimes).
+
+Facility emissions are available from the [US EPA National Emissions Inventory](https://www.epa.gov/air-emissions-inventories/2020-national-emissions-inventory-nei-data). Check Canvas for an xlsx spreadsheet for NEI emissions data if you are in that group.
+
+### PM~2.5~ emissions sources you can't see
+
+- Gaseous precursors that react in the atmosphere to form PM 
+  - NO~x~, SO~2~, VOCs, NH~3~.  
+  - Ultrafine particles that are too small to absorb or scatter light.  Note, this can give that appearance of haze when you look through the atmosphere towards a landmark, but it is obscured.  
