@@ -1,0 +1,155 @@
+# Roads {#sec-roads}
+
+::: {.callout-note appearance="simple"}
+Today is going to be an showing how to get some roads data.  
+:::
+  
+## Load libraries
+
+```{r}
+library(tigris)
+library(sf)
+library(leaflet)
+library(dplyr)
+```
+```{r}
+knitr::opts_chunk$set(message = NA)
+```
+
+### `Tigris` function for scraping road data.
+
+The aptly named `roads()` function will pull road linestrings.  
+
+```{r}
+#| messages: false
+#| warnings: false
+Riv_roads <- roads(state = 'CA', county = 'Riverside', year = 2023, progress_bar = FALSE) |> 
+  st_transform(crs = 4326)
+
+head(Riv_roads)
+
+```
+There are 58,448 road segments from 2023.  That's a lot of lines for a map and takes too long to load.  Feel free to make a map with it if you want to hear your computer hum.  
+
+For the purpose of the road widening project, we're mostly focusing on big roads getting widened.  The documentation for `roads()` states that the RTTYP category provides six types.  
+
+I'm going to `filter` just the Interstate (I) and State (S) roads for this version.  
+
+```{r}
+
+Riv_major_roads <- Riv_roads |> 
+  filter(RTTYP %in% c('I', 'S'))
+
+```
+
+There are only 81 major roads segments that meet that criteria.  
+
+```{r}
+#| label: fig-Roads
+#| echo: true
+#| warning: false
+#| fig-cap: Riverside roads on a leaflet map
+
+  leaflet() |> 
+  addTiles() |> 
+  addPolylines(data = Riv_major_roads,
+              color = 'black',
+              weight = 3,
+              dashArray = '2,6', #new feature - makes lines dashed - line lenght, space length
+              label = ~FULLNAME)
+```
+
+Now let's add Riverside County warehouses for a quick look at the proximity of those facilities to current major roadways.  We did this in [lesson 10.3.2](https://radicalresearch.llc/EA078_Fall2024/EJPolygons.html#manually-identify-the-polygon-vertices.) 
+
+```{r}
+
+
+WH.url <- 'https://raw.githubusercontent.com/RadicalResearchLLC/WarehouseMap/main/WarehouseCITY/geoJSON/comboFinal.geojson'
+warehouses <- st_read(WH.url) |>  
+  st_transform(crs = 4326) |> 
+  filter(county == 'Riverside County')
+
+```
+
+@fig-roadWH shows the major roads and warehouse land-use.
+
+```{r}
+#| label: fig-roadWH
+#| echo: true
+#| warning: false
+#| fig-cap: Riverside roads and warehouses on a leaflet map
+
+palWH <- colorFactor(palette = c('orange', 'gold', 'brown'),
+                     domain = warehouses$category)
+palRoadType <- colorFactor(palette = c('darkblue', 'purple'),
+                           domain = Riv_major_roads$RTTYP)
+
+leaflet() |> 
+  addProviderTiles(provider = providers$CartoDB.Positron) |> ## We modified this line to change to satellite view  
+  addPolygons(data = warehouses,
+              color = ~palWH(category),
+              weight = 1,
+              fillOpacity = 0.7) |> 
+  addLegend(data = warehouses,
+            pal = palWH,
+            values = ~category) |> 
+  addPolylines(data = Riv_major_roads,
+            color = ~palRoadType(RTTYP),
+            weight = 3,
+            dashArray = '2,6',
+            label = ~FULLNAME) |> 
+  setView(zoom = 10, lat = 33.8, lng = -117.15) 
+```
+
+This is a good start, but there's some missing pieces that we can show a few examples for road widening.
+
+Let's `filter()` down a data table for a couple of key roads that are approved or under review for road widening.
+
+```{r}
+
+roads2widen <- Riv_roads |> 
+  filter(FULLNAME %in% c('Cajalco Rd', 'Cajalco Expy', 'Ramona Expy', 'Gilman Springs Rd'))
+
+```
+
+This selects just a few individual county level roads.  Let's add those to a new map.
+
+@fig-widening shows the result.
+
+```{r}
+#| label: fig-widening
+#| echo: true
+#| warning: false
+#| fig-cap: Riverside roads and widening roads with warehouses on a leaflet map
+
+palWH <- colorFactor(palette = c('orange', 'gold', 'brown'),
+                     domain = warehouses$category)
+palRoadType <- colorFactor(palette = c('darkblue', 'purple'),
+                           domain = Riv_major_roads$RTTYP)
+
+leaflet() |> 
+  addProviderTiles(provider = providers$CartoDB.Positron) |> ## We modified this line to change to satellite view  
+  addPolygons(data = warehouses,
+              color = ~palWH(category),
+              weight = 1,
+              fillOpacity = 0.7) |> 
+  addLegend(data = warehouses,
+            pal = palWH,
+            values = ~category,
+            position = 'bottomleft') |> 
+  addPolylines(data = Riv_major_roads,
+            color = ~palRoadType(RTTYP),
+            weight = 3,
+            dashArray = '2,6',
+            label = ~FULLNAME) |> 
+  setView(zoom = 10, lat = 33.8, lng = -117.15) |> 
+  addPolylines(data = roads2widen,
+               color = 'red',
+               weight = 4,
+              dashArray = '2,6',
+              label = ~FULLNAME) |> 
+  addLegend(title = 'Roads',
+            colors = c('darkblue', 'purple', 'red'),
+            labels = c('Interstate', 'State Route', 'Road widening'),
+            position = 'bottomleft')
+```

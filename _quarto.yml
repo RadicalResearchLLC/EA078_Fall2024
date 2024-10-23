@@ -38,6 +38,7 @@ book:
       - research.qmd 
       - AirQuality.qmd  
       - joins.qmd  
+      - roads.qmd
       - assignment4.qmd
   appendices: 
     - syllabus.qmd  
