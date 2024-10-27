@@ -39,6 +39,8 @@ book:
       - AirQuality.qmd  
       - joins.qmd  
       - roads.qmd
+      - shiny.qmd
+      - maps4.qmd
       - assignment4.qmd
   appendices: 
     - syllabus.qmd  

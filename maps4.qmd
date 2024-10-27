@@ -1,0 +1,176 @@
+# Advanced Spatial Visualization {#sec-maps4}
+
+::: {.callout-note appearance="simple"}
+Today we will be focusing on the theory and practice of fancy geospatial data visualization.
+:::
+
+## Visual Categories and Encodings
+
+Let's go back to the beginning of this course. There are 3 categories of information that can be displayed.
+
+1.  Quantitative
+2.  Qualitative
+3.  Spatial
+
+[Lecture 1.2.1](http://radicalresearch.llc/EDVcourse/information.html#categories-of-information-illustrated-by-the-newspaper-weather-visualization)
+
+The three types of data can be encoded in:
+
+-   Geometric primitives - points, lines, and areas
+-   Visual channels - size, color, shape, position, angle, and texture
+
+An advanced spatial visualization covering multiple layers of information needs to use multiple sets of encodings to convey information quickly and intuitively while not overwhelming the audience.
+
+## Circles, Lines, and Polygons - Oh My!
+
+Fancy maps need distinct visual encodings, so the eye can be drawn the salient features.
+
+One key way to do this is through ensuring different types/styles/aesthetics are displayed as unique fingerprints of visual encodings.
+
+Another way to do this is through small multiples figures, as we showed in #fig-facetEJMap.  However, that was a `facet_wrap()` done on a static map.  It is also possible to do small multiples with leaflet maps.  
+
+First, get all the libraries we need loaded up.
+
+```{r}
+#| label: load libraries
+#| echo: true
+#| message: false
+
+library(tidyverse)
+library(leaflet)
+library(sf)
+
+
+```
+
+Now, we'll need a new library called `leafsync`.
+
+First, install it.
+
+```{r}
+#| label: install leafsync
+#| echo: true
+#| eval: false
+
+install.packages('leafsync')
+
+```
+
+Then load the library.
+
+```{r}
+#| label: load leafsync
+#| echo: true
+#| message: false
+
+library(leafsync)
+
+```
+### Example 1 - SoCalEJ multiples
+
+Let's test this out with just Orange County data from SoCalEJ - our robust and useful testing dataset.
+
+First, we pull the data, if it isn't already loaded.
+
+```{r}
+#| label: load SoCalEJ again
+#| echo: true
+
+URL.path <- 'https://raw.githubusercontent.com/RadicalResearchLLC/EDVcourse/main/CalEJ4/CalEJ.geoJSON'
+OCEJ <- st_read(URL.path) |>  
+  st_transform("+proj=longlat +ellps=WGS84 +datum=WGS84") |> 
+  filter(County == 'Orange') |> 
+  select(White, Hispanic, AAPI, geometry)
+
+```
+
+Let's create two figures and save them as individual maps before displaying them using leafsync.  Let's show White, Asian, and Hispanic populations for Orange County. 
+
+First, we create individual maps. The template is shown below for the White population in #fig-White  
+
+```{r}
+#| label: fig-white
+#| echo: true
+#| fig-cap: Percentage of residents by census tract identified as White.
+
+palW <- colorNumeric(palette = 'GnBu', 
+                     domain = OCEJ$White)
+
+leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = OCEJ,
+              color = ~palW(White),
+              fillOpacity = 0.8,
+              weight = 1) |> 
+  addLegend(data = OCEJ,
+            pal = palW,
+            values = ~White,
+            title = '% White')
+
+
+
+```
+
+Ok, the map is straightforward. To make a synced multiples map, we have to do three steps.
+
+1) Make a map of each type we want to show.
+2) Assign the map to a named variable.  In this case, we'll call the maps `white`, `hispanic`, and `aapi` and assign the leaflet maps to those variables using the `<-` operator.
+3) Use the `sync()` function from leafsync to show them.
+
+The code for steps 1 and 2 are just slight variations on the white map we showed above, repeated three times.  
+
+@fig-leafsync shows the end result.  
+
+```{r}
+#| label: fig-leafsync
+#| echo: true
+#| fig-cap: leaflet maps 
+
+palW <- colorNumeric(palette = 'RdPu', 
+                     domain = OCEJ$White)
+palH <- colorNumeric(palette = 'RdPu',
+                     domain = OCEJ$Hispanic)
+palA <- colorNumeric(palette = 'RdPu',
+                     domain = OCEJ$AAPI)
+white <- 
+  leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = OCEJ,
+              color = ~palW(White),
+              fillOpacity = 0.8,
+              weight = 1) |> 
+  addLegend(data = OCEJ,
+            pal = palW,
+            values = ~White,
+            title = '% White')
+
+hispanic <- leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = OCEJ,
+              color = ~palH(Hispanic),
+              fillOpacity = 0.8,
+              weight = 1) |> 
+  addLegend(data = OCEJ,
+            pal = palH,
+            values = ~Hispanic,
+            title = '% Hispanic')
+
+aapi <- 
+  leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = OCEJ,
+              color = ~palA(AAPI),
+              fillOpacity = 0.8,
+              weight = 1) |> 
+  addLegend(data = OCEJ,
+            pal = palA,
+            values = ~AAPI,
+            title = '% AAPI')
+
+## This shows all three together
+sync(white, hispanic, aapi)
+        
+```
+
+The cool thing about sync is it zooms in and out as a combination, so if they are all on the same scale, we can really see some differences.  
+
