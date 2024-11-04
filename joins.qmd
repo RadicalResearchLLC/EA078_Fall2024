@@ -43,7 +43,8 @@ In this example, I
 
 #read the data
 CA_places <- places(state = 'CA', cb = T, #pull for California, lower detail level
-                    year = 2022) |> 
+                    year = 2022, 
+                    progress_bar = FALSE) |> 
   st_transform(crs = 4326)
   
 head(CA_places)
@@ -101,7 +102,7 @@ Step 1 - pull Los Angeles County spatial boundaries using the `county`
 #| echo: true
 
 #read the data
-LA_county <- counties(state = 'CA', cb = T) |>  #pull for California, lower detail level, year = 2022 ) 
+LA_county <- counties(state = 'CA', cb = T, progress_bar = FALSE) |>  #pull for California, lower detail level, year = 2022 ) 
   st_transform(crs = 4326) |> 
   filter(NAME == 'Los Angeles') # Just pick LA County
 ```
@@ -235,7 +236,7 @@ Time for a map.  @fig-population shows population of cities in Los Angeles Count
 #| fig-cap: Los Angeles city populations other than  leaflet map.
 
 leaflet() |> 
-  addProviderTiles(provider = providers$Stadia.AlidadeSmoothDark) |> 
+  addProviderTiles(provider = providers$CartoDB.Positron) |> 
   addPolygons(data = LA_places_pop,
               color = ~palPop(pop2024),
               fillOpacity = 0.8,
