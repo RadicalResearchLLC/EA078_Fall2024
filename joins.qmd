@@ -86,15 +86,92 @@ FontanaBloomington <- CA_places |>
               label = ~NAME)
 ```
 
-### Database Joins - data science lesson #1
+## Spatial Joins 
+
+Spatial joins use geospatial information to identify overlapping geometries in space.  Thus, if one has two geospatial datasets, one can quickly identify intersections of interest.
+
+### Example 1 - Spatial Joins
+
+Let's pick all the cities and census designated places in Los Angeles County.
+
+Step 1 - pull Los Angeles County spatial boundaries using the `county`
+
+```{r}
+#| label: import just Los Angeles County
+#| echo: true
+
+#read the data
+LA_county <- counties(state = 'CA', cb = T) |>  #pull for California, lower detail level, year = 2022 ) 
+  st_transform(crs = 4326) |> 
+  filter(NAME == 'Los Angeles') # Just pick LA County
+```
+
+Check if it worked by making a basic leaflet map.
+@fig-LA_county
+
+```{r}
+#| label: fig-LA_county
+#| echo: true
+#| warning: false
+#| fig-cap: Los Angeles County on a leaflet map
+
+leaflet() |> 
+  addTiles() |> 
+  addPolygons(data = LA_county,
+              color = 'black')
+
+```
+
+Great!
+
+Now let's spatially filter the Los Angeles places using `st_filter()` from the `sf` package.
+
+The syntax is to provide the basic dataset to filter first, then the geospatial polygon to filter on second.
+
+```{r}
+
+LA_places <- CA_places |> 
+  st_filter(LA_county, #
+            .predicate = st_covered_by) # This adjective includes fully 'covered' places - not ones that merely intersect partially, 
+# which is the default
+
+head(LA_places)
+
+```
+
+Ok, let's make a map to see if these are just the correct cities.
+
+@fig_LAPlaces shows the place and city boundaries in blue, and LA County in red.  
+
+
+```{r}
+#| label: fig-LAPlaces
+#| echo: true
+#| warning: false
+#| fig-cap: Los Angeles County and its cities and places on a leaflet map.
+
+leaflet() |> 
+  addTiles() |> 
+  addPolylines(data = LA_county,
+              color = 'red') |> 
+  addPolygons(data = LA_places,
+              color = 'blue',
+              fillOpacity = 0.2,
+              label = ~NAME,
+              weight = 2)
+
+```
+
+
+## Database Joins 
 
 Dataset `CA_places` has the geospatial information on city and census designated place boundaries. Some of the other datasets you are using have the information you would like to compare.  How can we merge or join these disparate data layers for visualization and analysis?
-                          
+  
 There are two types of joins that can help to merge disparate datasets.
 
 The first type of join is based on unique records in both datasets.  If you have a column in dataset *A* and it has some matching records in dataset *B*, there are ways to join the two datasets.
 
-Here's all the permutations.                                                                                                                                                        -   `inner_join()` - keep only records present in both dataset A and B.                   -   `left_join()` - keep **all** records from the dataset A and only matching variables from B. Fill missing with **NA**.
+Here's all the permutations.                                                                                                                                                        -   `inner_join()` - keep only records present in both dataset A and B.                 -   `left_join()` - keep **all** records from the dataset A and only matching variables from B. Fill missing with **NA**.
 -   `right_join()` - keep **all** records from the dataset B and only matching variables from A. Fill missing with **NA**.
 -   `full_join()` - keep **all** records from A and B - fill **NA** in any records where dataset is missing from one of the datasets.                                              -   `anti_join()` - keep **only** records from A that don't occur in B.
 
@@ -102,10 +179,74 @@ The example below shows Venn diagrams of all the permutations.
 
 ![Join Venn Diagrams - credit **Tavareshugo** github](https://tavareshugo.github.io/r-intro-tidyverse-gapminder/fig/07-dplyr_joins.svg)
 
-## Spatial Joins - Data science lesson #2 
+### Example #2 - population data
 
-More interesting and probably more useful for your group projects are spatial joins.
+The [California Department of Finance](https://dof.ca.gov/forecasting/demographics/estimates-e1/) provides city and place information on households and populations. I'd like to map population of cities and places using the latest and greatest data.
 
-Spatial joins use geospatial information to identify overlapping geometries in space.  Thus, if one has two geospatial datasets, one can quickly identify intersections of interest.
+First, let me scrape the data using a new package for reading MS Excel spreadsheets - `readxl`.
 
-**MORE TO COME SOON**
+We need to install the new package which reads Excel files.
+
+```{r}
+#| eval: false
+install.packages('openxlsx')
+```
+
+Then, once installed, we load the library.
+
+```{r}
+library(openxlsx)
+```
+
+Scrape the data using the `read_excel()` function from `readxl`
+
+```{r}
+
+Tbl_E1 <- read.xlsx(xlsxFile = 'https://dof.ca.gov/wp-content/uploads/sites/352/Forecasting/Demographics/Documents/E-1_2024_InternetVersion.xlsx',                   sheet = 'E-1 CityCounty2024', #multiple sheets, we need to specify the sheetname
+                    rows = 5:599) |> # this is filtering for rows with decent data
+  rename(place = 'State/County/City',
+         pop2023 = '1/1/2023',
+         pop2024 = '1/1/2024')
+
+head(Tbl_E1)
+
+```
+
+Alright, we have population data and place names.  Let's see if we can show city populations using a join function.
+
+```{r}
+
+LA_places_pop <- LA_places |> 
+  left_join(Tbl_E1, by = c('NAME' = 'place')) |> # this tells it what columns to join the two tables by
+  filter(!is.na(pop2024)) |> # remove census places with no population data in this table
+  filter(NAME != 'Los Angeles') # remove Los Angeles City because it is too big
+
+palPop <- colorNumeric(domain = LA_places_pop$pop2024,
+                       palette = 'Spectral', reverse = T)
+
+```
+
+Time for a map.  @fig-population shows population of cities in Los Angeles County other than the city of Los Angeles.  
+
+```{r}
+#| label: fig-population
+#| echo: true
+#| warning: false
+#| fig-cap: Los Angeles city populations other than  leaflet map.
+
+leaflet() |> 
+  addProviderTiles(provider = providers$Stadia.AlidadeSmoothDark) |> 
+  addPolygons(data = LA_places_pop,
+              color = ~palPop(pop2024),
+              fillOpacity = 0.8,
+              label = ~str_c(NAME, ', ', pop2024), # add concatenated string label with city name and population
+              weight = 2) |> 
+  addLegend(data = LA_places_pop,
+            title = '2024 population',
+            pal = palPop,
+            values = ~pop2024)
+
+```
+
+
+
