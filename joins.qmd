@@ -198,7 +198,7 @@ Then, once installed, we load the library.
 library(openxlsx)
 ```
 
-Scrape the data using the `read_excel()` function from `readxl`
+Scrape the data using the `read.xlsx()` function from `openxlsx`
 
 ```{r}
 
