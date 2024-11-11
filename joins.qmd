@@ -142,7 +142,7 @@ head(LA_places)
 
 Ok, let's make a map to see if these are just the correct cities.
 
-@fig_LAPlaces shows the place and city boundaries in blue, and LA County in red.  
+@fig-LAPlaces shows the place and city boundaries in blue, and LA County in red.  
 
 
 ```{r}

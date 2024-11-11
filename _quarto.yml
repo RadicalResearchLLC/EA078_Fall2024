@@ -40,7 +40,8 @@ book:
       - joins.qmd  
       - roads.qmd
       - shiny.qmd
-      - maps4.qmd
+      - maps4.qmd  
+      - roads_rails_tracts_buffers.qmd
       - assignment4.qmd
   appendices: 
     - syllabus.qmd  
