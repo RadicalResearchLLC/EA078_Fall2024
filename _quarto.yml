@@ -42,6 +42,7 @@ book:
       - shiny.qmd
       - maps4.qmd  
       - roads_rails_tracts_buffers.qmd
+      - animate.qmd
       - assignment4.qmd
   appendices: 
     - syllabus.qmd  
