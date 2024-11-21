@@ -1,0 +1,146 @@
+# Data Import - Theory and Practice  {#sec-dataTheory}
+
+::: {.callout-note appearance="simple"}
+This lecture provides a systematic overview of key steps in the acquisition and import of data.
+:::
+
+As a reminder, our framework for the workflow of data visualization is shown in @fig-TidyverseFramework
+
+![Tidyverse data visualization framework](https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png){#fig-TidyverseFramework}
+  
+## Overview
+
+0. Clearly define the research question
+1. Identify relevant authoritative data sources
+2. Critically evaluate the data sources
+3. Import the data 
+4. Review and tidy the data
+
+Some sources to peruse for more information on data import using R.  
+- [R for Data Science 2e - Data Import](https://r4ds.hadley.nz/data-import.html)  
+- [An Introduction to R - Data](https://intro2r.com/data-types.html)  
+- [Reading, Writing and Converting Simple Features](https://r-spatial.github.io/sf/articles/sf2.html)  
+- [Introduction to Data Science - Importing Data](https://rafalab.dfci.harvard.edu/dsbook/importing-data.html)  
+  
+### Step 0. Clearly define the question or objective
+
+The zeroeth step is to identify what it is you are planning to do. Delineat the scope of the project for the purposes of defining the data needs.
+
+- Spatial extent
+- Temporal extent
+- Variables/parameters (environmental variables, socioeconomic information, categorical information, jurisdictions) 
+
+#### Example - Particulate emissions sources affecting Fontana and Bloomington
+
+- Spatial extent - The city of Fontana and the census designated place of Bloomington boundaries with a 1 km buffer
+- Temporal extent - Emissions sources operational as of 2020 or later.
+- Variables/parameters - Major roads, local roads, rail, railyards, industrial facilities in emissions inventory, small area sources like gas stations, restaurants, truck terminals, and warehouses
+- DQOs - authoritative sources (census, government agency datasets, OpenStreetMaps, Peer Reviewed Data Products)
+
+#### Example -  Road widening projects in Riverside County and induced Freight VMT/demand
+
+- Spatial extent - Western Riverside County - west of Banning
+- Temporal extent - Projects constructed between 2014-2024 and planned through 2030
+- Variables/parameters - Road links, vehicle and truck AADT, warehouse land-use, residential developments
+
+### Step 1. Identify relevant authoritative data sources
+
+What is the best dataset that meets the needs of the research question? 
+What authoritative sources provide information?  
+
+Look for government agencies, peer-reviewed data, and other similar authoritative and quality assured sources.  
+
+#### Example - PM emissions 
+
+- Road and rail datasets from US Census Tiger files (tigris) or Caltrans
+- Large Facility information from US EPA, CARB or SCAQMD
+- Small localized sources like restaurants and small industrial facilities (Warehouse CITY or CoStar)
+
+#### Example - Road Widening
+
+- RCTC project information
+- Road link information from US Census Tiger files (tigris) or Caltrans
+- Traffic and truck volume AADT (annual average daily traffic) data from Caltrans
+- Warehouse data from Warehouse CITY or CoStar ($$)
+- Residential information from County of Riverside (unincorporated) and municipalities
+
+### Step 2. Critically evaluate the data sources
+
+Prior to acquiring the data, it is important to evaluate its utility for your goals, to the extent possible.
+
+- What type of data is it? (geospatial, tabular, categorical, qualitative)
+- Does it cover the spatial domain?
+- Is it the right temporal period?
+- Does it have the right variables?
+- What format is it in?  
+- Does it require any specific citations, licenses, and/or attribution for use?
+
+::: {.callout-note appearance="simple"}
+Sometimes these things can't be evaluated until you import the data.  Iterate through step 2-4 as needed.  
+:::
+
+#### Example - PM emissions
+
+The `tigris` package is a wealth of primary authoritative data.
+- `roads()` data is authoritative, recent, spatially comprehensive, geospatial data. ✅  
+- `rails()` data - same as roads, but does require some spatial tidying. ✅
+- `places()` data - usable to zoom in on spatial scope - requires some spatial tidying/buffering. ✅
+
+US EPA data for National emissions inventory - this has location information for large sources. ✅
+
+SCAQMD data for source magnitudes from [PM AQMP](https://radicalresearch.llc/EA078_Fall2024/research.html#emissions-of-pm2.5-and-co2), see table and links to primary sources. ✅
+
+Restaurant data - I haven't found a good source for tabular and spatial data on restaurants. Google API might work but requires registration.
+
+#### Example - Roads
+
+RCTC website has project information, but it isn't directly downloadable/scrapable.  Tidying required. ✅
+
+The `tigris` package is a wealth of primary authoritative data.
+- `roads()` data is authoritative, recent, spatially comprehensive, geospatial data. ✅  
+
+[Caltrans open data](https://data.ca.gov/organization/caltrans) has point data for AADT and truck AADT. Will require spatial joins to road links.  Single year of data. Spreadsheets contain multiple years that can be linked to this.
+
+[Riverside County open data](https://gisopendata-countyofriverside.opendata.arcgis.com/datasets/zoning/about) has zoning polygons for identifying residential areas, but not necessarily new areas. Other municipalities may be needed to cover specific road segments.  
+
+### Step 3. Import Data
+
+3.1 Identify the data format
+3.2 Can I scrape it directly?  Is there a url or API or a package in R that will allow me to scrape it?  If so, that's probably the best choice for a reproducible workflow. Examples include `tidycensus`, `tigris`, `warehouses`, `co2`, and `SoCalEJ` datasets. 
+3.3 If not, download it.  
+  3.3a - Unzip it if zipped or compressed.
+  3.3b - move data to working directory or point import script to location it is stored.  Keeping data in a specific working directory is a better practice.  
+3.4 - Import it using appropriate function (`st_read()`, `read_table()`, `read_csv()`, etc.)
+3.5 - Review data import
+  3.5a - look at data table
+  3.5b - make a basic visualization
+
+#### Example - PM emissions
+
+Scrape `roads()`, `rails()`, and `places()` and `warehouses`.
+
+Import facility data from F.I.N.D tool at SCAQMD using `openxlsx::read.xlsx()`.  
+
+Google maps api call for restaurants or manually assemble restaurant list - both could be slow and painful.
+
+#### Example - Roads
+
+Scrape `roads()` and `warehouses`.
+
+Download passenger and truck AADT data from Caltrans.
+
+Residential zoning is available for the county and potentially some municipalities for download.
+
+Assemble road widening project data from county website into data table(s).
+
+### Step 4. Review and tidy data.
+
+Use `head()`, `tail()`, to examine imported rows.  
+
+- Check that the number of records seems reasonable - a zero record import is usually bad
+- Check for column names, and check that they are R friendly (avoid spaces, special characters)
+- Check column types - common errors include dates imported as character types or other incorrect assignments.
+- Check for `NA` and null records, rows, and columns.
+- For geospatial data - check coordinate reference system
+
+As necessary, tidy the data to get it in the form you need.  See all the data science steps in [Data Science 101](http://localhost:6114/munging.html)
