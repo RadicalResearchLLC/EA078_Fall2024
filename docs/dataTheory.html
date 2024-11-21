@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>26&nbsp; Assignments for Unit 4 - Projects – Environmental Data Visualization - EA 078 Fall 2024</title>
+<title>25&nbsp; Data Import - Theory and Practice – Environmental Data Visualization - EA 078 Fall 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./syllabus.html" rel="next">
-<link href="./dataTheory.html" rel="prev">
+<link href="./assignment4.html" rel="next">
+<link href="./animate.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projects.html">Unit 4: Special Projects</a></li><li class="breadcrumb-item"><a href="./assignment4.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Assignments for Unit 4 - Projects</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projects.html">Unit 4: Special Projects</a></li><li class="breadcrumb-item"><a href="./dataTheory.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Import - Theory and Practice</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -324,13 +324,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataTheory.html" class="sidebar-item-text sidebar-link">
+  <a href="./dataTheory.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Import - Theory and Practice</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignment4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./assignment4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Assignments for Unit 4 - Projects</span></span></a>
   </div>
 </li>
@@ -387,19 +387,39 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#individual-visualization" id="toc-individual-visualization" class="nav-link active" data-scroll-target="#individual-visualization"><span class="header-section-number">26.1</span> Individual Visualization</a></li>
-  <li><a href="#grading-for-individual-visualization-project" id="toc-grading-for-individual-visualization-project" class="nav-link" data-scroll-target="#grading-for-individual-visualization-project"><span class="header-section-number">26.2</span> Grading for Individual Visualization Project</a></li>
-  <li><a href="#group-visualization" id="toc-group-visualization" class="nav-link" data-scroll-target="#group-visualization"><span class="header-section-number">26.3</span> Group Visualization</a></li>
-  <li><a href="#grading-for-group-visualization-project" id="toc-grading-for-group-visualization-project" class="nav-link" data-scroll-target="#grading-for-group-visualization-project"><span class="header-section-number">26.4</span> Grading for Group Visualization Project</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">25.1</span> Overview</a>
+  <ul>
+  <li><a href="#step-0.-clearly-define-the-question-or-objective" id="toc-step-0.-clearly-define-the-question-or-objective" class="nav-link" data-scroll-target="#step-0.-clearly-define-the-question-or-objective"><span class="header-section-number">25.1.1</span> Step 0. Clearly define the question or objective</a>
+  <ul class="collapse">
+  <li><a href="#example---particulate-emissions-sources-affecting-fontana-and-bloomington" id="toc-example---particulate-emissions-sources-affecting-fontana-and-bloomington" class="nav-link" data-scroll-target="#example---particulate-emissions-sources-affecting-fontana-and-bloomington"><span class="header-section-number">25.1.1.1</span> Example - Particulate emissions sources affecting Fontana and Bloomington</a></li>
+  <li><a href="#example---road-widening-projects-in-riverside-county-and-induced-freight-vmtdemand" id="toc-example---road-widening-projects-in-riverside-county-and-induced-freight-vmtdemand" class="nav-link" data-scroll-target="#example---road-widening-projects-in-riverside-county-and-induced-freight-vmtdemand"><span class="header-section-number">25.1.1.2</span> Example - Road widening projects in Riverside County and induced Freight VMT/demand</a></li>
+  </ul></li>
+  <li><a href="#step-1.-identify-relevant-authoritative-data-sources" id="toc-step-1.-identify-relevant-authoritative-data-sources" class="nav-link" data-scroll-target="#step-1.-identify-relevant-authoritative-data-sources"><span class="header-section-number">25.1.2</span> Step 1. Identify relevant authoritative data sources</a>
+  <ul class="collapse">
+  <li><a href="#example---pm-emissions" id="toc-example---pm-emissions" class="nav-link" data-scroll-target="#example---pm-emissions"><span class="header-section-number">25.1.2.1</span> Example - PM emissions</a></li>
+  <li><a href="#example---road-widening" id="toc-example---road-widening" class="nav-link" data-scroll-target="#example---road-widening"><span class="header-section-number">25.1.2.2</span> Example - Road Widening</a></li>
+  </ul></li>
+  <li><a href="#step-2.-critically-evaluate-the-data-sources" id="toc-step-2.-critically-evaluate-the-data-sources" class="nav-link" data-scroll-target="#step-2.-critically-evaluate-the-data-sources"><span class="header-section-number">25.1.3</span> Step 2. Critically evaluate the data sources</a>
+  <ul class="collapse">
+  <li><a href="#example---pm-emissions-1" id="toc-example---pm-emissions-1" class="nav-link" data-scroll-target="#example---pm-emissions-1"><span class="header-section-number">25.1.3.1</span> Example - PM emissions</a></li>
+  <li><a href="#example---roads" id="toc-example---roads" class="nav-link" data-scroll-target="#example---roads"><span class="header-section-number">25.1.3.2</span> Example - Roads</a></li>
+  </ul></li>
+  <li><a href="#step-3.-import-data" id="toc-step-3.-import-data" class="nav-link" data-scroll-target="#step-3.-import-data"><span class="header-section-number">25.1.4</span> Step 3. Import Data</a>
+  <ul class="collapse">
+  <li><a href="#example---pm-emissions-2" id="toc-example---pm-emissions-2" class="nav-link" data-scroll-target="#example---pm-emissions-2"><span class="header-section-number">25.1.4.1</span> Example - PM emissions</a></li>
+  <li><a href="#example---roads-1" id="toc-example---roads-1" class="nav-link" data-scroll-target="#example---roads-1"><span class="header-section-number">25.1.4.2</span> Example - Roads</a></li>
+  </ul></li>
+  <li><a href="#step-4.-review-and-tidy-data." id="toc-step-4.-review-and-tidy-data." class="nav-link" data-scroll-target="#step-4.-review-and-tidy-data."><span class="header-section-number">25.1.5</span> Step 4. Review and tidy data.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projects.html">Unit 4: Special Projects</a></li><li class="breadcrumb-item"><a href="./assignment4.html"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Assignments for Unit 4 - Projects</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./projects.html">Unit 4: Special Projects</a></li><li class="breadcrumb-item"><a href="./dataTheory.html"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Import - Theory and Practice</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-assignment4" class="quarto-section-identifier"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Assignments for Unit 4 - Projects</span></span></h1>
+<h1 class="title"><span id="sec-dataTheory" class="quarto-section-identifier"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Import - Theory and Practice</span></span></h1>
 </div>
 
 
@@ -422,47 +442,152 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>This includes the list of assignments for Unit 4 associated with Projects.</p>
+<p>This lecture provides a systematic overview of key steps in the acquisition and import of data.</p>
 </div>
 </div>
 </div>
-<section id="individual-visualization" class="level2" data-number="26.1">
-<h2 data-number="26.1" class="anchored" data-anchor-id="individual-visualization"><span class="header-section-number">26.1</span> Individual Visualization</h2>
-<p>Due by email/canvas at 9:45 AM on <strong>November 12, 2024</strong>.</p>
-<p>Assignment is a single visualization of data on the team’s chosen topic. Assignment should provide an exported visualization <code>.png, .pdf, .html</code> and the <code>.R script</code> used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.</p>
-<p>Describe a minimum of three features that were selected to explore the dataset, either in the <code>.R script</code> or in the email. Bullet points are fine.</p>
-</section>
-<section id="grading-for-individual-visualization-project" class="level2" data-number="26.2">
-<h2 data-number="26.2" class="anchored" data-anchor-id="grading-for-individual-visualization-project"><span class="header-section-number">26.2</span> Grading for Individual Visualization Project</h2>
-<p>Total of 200 points</p>
+<p>As a reminder, our framework for the workflow of data visualization is shown in <a href="#fig-TidyverseFramework" class="quarto-xref">Figure&nbsp;<span>25.1</span></a></p>
+<div id="fig-TidyverseFramework" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-TidyverseFramework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-TidyverseFramework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;25.1: Tidyverse data visualization framework
+</figcaption>
+</figure>
+</div>
+<section id="overview" class="level2" data-number="25.1">
+<h2 data-number="25.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">25.1</span> Overview</h2>
+<ol start="0" type="1">
+<li>Clearly define the research question</li>
+<li>Identify relevant authoritative data sources</li>
+<li>Critically evaluate the data sources</li>
+<li>Import the data</li>
+<li>Review and tidy the data</li>
+</ol>
+<p>Some sources to peruse for more information on data import using R.<br>
+- <a href="https://r4ds.hadley.nz/data-import.html">R for Data Science 2e - Data Import</a><br>
+- <a href="https://intro2r.com/data-types.html">An Introduction to R - Data</a><br>
+- <a href="https://r-spatial.github.io/sf/articles/sf2.html">Reading, Writing and Converting Simple Features</a><br>
+- <a href="https://rafalab.dfci.harvard.edu/dsbook/importing-data.html">Introduction to Data Science - Importing Data</a></p>
+<section id="step-0.-clearly-define-the-question-or-objective" class="level3" data-number="25.1.1">
+<h3 data-number="25.1.1" class="anchored" data-anchor-id="step-0.-clearly-define-the-question-or-objective"><span class="header-section-number">25.1.1</span> Step 0. Clearly define the question or objective</h3>
+<p>The zeroeth step is to identify what it is you are planning to do. Delineat the scope of the project for the purposes of defining the data needs.</p>
 <ul>
-<li>20 points for data source attribution</li>
-<li>30 points for description of three features</li>
-<li>60 points for three features implementation in visualization</li>
-<li>45 points for aesthetics</li>
-<li>45 points for labels, legend, and in-visualization annotation</li>
+<li>Spatial extent</li>
+<li>Temporal extent</li>
+<li>Variables/parameters (environmental variables, socioeconomic information, categorical information, jurisdictions)</li>
+</ul>
+<section id="example---particulate-emissions-sources-affecting-fontana-and-bloomington" class="level4" data-number="25.1.1.1">
+<h4 data-number="25.1.1.1" class="anchored" data-anchor-id="example---particulate-emissions-sources-affecting-fontana-and-bloomington"><span class="header-section-number">25.1.1.1</span> Example - Particulate emissions sources affecting Fontana and Bloomington</h4>
+<ul>
+<li>Spatial extent - The city of Fontana and the census designated place of Bloomington boundaries with a 1 km buffer</li>
+<li>Temporal extent - Emissions sources operational as of 2020 or later.</li>
+<li>Variables/parameters - Major roads, local roads, rail, railyards, industrial facilities in emissions inventory, small area sources like gas stations, restaurants, truck terminals, and warehouses</li>
+<li>DQOs - authoritative sources (census, government agency datasets, OpenStreetMaps, Peer Reviewed Data Products)</li>
 </ul>
 </section>
-<section id="group-visualization" class="level2" data-number="26.3">
-<h2 data-number="26.3" class="anchored" data-anchor-id="group-visualization"><span class="header-section-number">26.3</span> Group Visualization</h2>
-<p><strong>Due Date</strong></p>
-<p>A group presentation on the progress to date will occur on <strong>December 3rd, 2024</strong>. Final group visualization will be due <strong>December 10th, 2024</strong> at noon (PST).</p>
-<p>Assignment is a visualization on the team’s chosen topic. Assignment should provide an exported visualization <code>.png, .pdf, .html</code> and the <code>.R script</code> used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.</p>
-<p>Describe the features that were selected to explore the dataset, either in the <code>.R script</code> or in the email. Bullet points are fine.</p>
-<p>Document in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that.</p>
-</section>
-<section id="grading-for-group-visualization-project" class="level2" data-number="26.4">
-<h2 data-number="26.4" class="anchored" data-anchor-id="grading-for-group-visualization-project"><span class="header-section-number">26.4</span> Grading for Group Visualization Project</h2>
-<p>Total of 250 points</p>
+<section id="example---road-widening-projects-in-riverside-county-and-induced-freight-vmtdemand" class="level4" data-number="25.1.1.2">
+<h4 data-number="25.1.1.2" class="anchored" data-anchor-id="example---road-widening-projects-in-riverside-county-and-induced-freight-vmtdemand"><span class="header-section-number">25.1.1.2</span> Example - Road widening projects in Riverside County and induced Freight VMT/demand</h4>
 <ul>
-<li>30 points for data source attribution</li>
-<li>30 points for description of features</li>
-<li>70 points for features implementation in visualization(s)</li>
-<li>30 points for aesthetics</li>
-<li>30 points for labels, legend, and in-visualization annotation</li>
-<li>30 points for the visualization providing insight into the group theme</li>
-<li>30 points for group participation - (team grading)</li>
+<li>Spatial extent - Western Riverside County - west of Banning</li>
+<li>Temporal extent - Projects constructed between 2014-2024 and planned through 2030</li>
+<li>Variables/parameters - Road links, vehicle and truck AADT, warehouse land-use, residential developments</li>
 </ul>
+</section>
+</section>
+<section id="step-1.-identify-relevant-authoritative-data-sources" class="level3" data-number="25.1.2">
+<h3 data-number="25.1.2" class="anchored" data-anchor-id="step-1.-identify-relevant-authoritative-data-sources"><span class="header-section-number">25.1.2</span> Step 1. Identify relevant authoritative data sources</h3>
+<p>What is the best dataset that meets the needs of the research question? What authoritative sources provide information?</p>
+<p>Look for government agencies, peer-reviewed data, and other similar authoritative and quality assured sources.</p>
+<section id="example---pm-emissions" class="level4" data-number="25.1.2.1">
+<h4 data-number="25.1.2.1" class="anchored" data-anchor-id="example---pm-emissions"><span class="header-section-number">25.1.2.1</span> Example - PM emissions</h4>
+<ul>
+<li>Road and rail datasets from US Census Tiger files (tigris) or Caltrans</li>
+<li>Large Facility information from US EPA, CARB or SCAQMD</li>
+<li>Small localized sources like restaurants and small industrial facilities (Warehouse CITY or CoStar)</li>
+</ul>
+</section>
+<section id="example---road-widening" class="level4" data-number="25.1.2.2">
+<h4 data-number="25.1.2.2" class="anchored" data-anchor-id="example---road-widening"><span class="header-section-number">25.1.2.2</span> Example - Road Widening</h4>
+<ul>
+<li>RCTC project information</li>
+<li>Road link information from US Census Tiger files (tigris) or Caltrans</li>
+<li>Traffic and truck volume AADT (annual average daily traffic) data from Caltrans</li>
+<li>Warehouse data from Warehouse CITY or CoStar ($$)</li>
+<li>Residential information from County of Riverside (unincorporated) and municipalities</li>
+</ul>
+</section>
+</section>
+<section id="step-2.-critically-evaluate-the-data-sources" class="level3" data-number="25.1.3">
+<h3 data-number="25.1.3" class="anchored" data-anchor-id="step-2.-critically-evaluate-the-data-sources"><span class="header-section-number">25.1.3</span> Step 2. Critically evaluate the data sources</h3>
+<p>Prior to acquiring the data, it is important to evaluate its utility for your goals, to the extent possible.</p>
+<ul>
+<li>What type of data is it? (geospatial, tabular, categorical, qualitative)</li>
+<li>Does it cover the spatial domain?</li>
+<li>Is it the right temporal period?</li>
+<li>Does it have the right variables?</li>
+<li>What format is it in?<br>
+</li>
+<li>Does it require any specific citations, licenses, and/or attribution for use?</li>
+</ul>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Sometimes these things can’t be evaluated until you import the data. Iterate through step 2-4 as needed.</p>
+</div>
+</div>
+</div>
+<section id="example---pm-emissions-1" class="level4" data-number="25.1.3.1">
+<h4 data-number="25.1.3.1" class="anchored" data-anchor-id="example---pm-emissions-1"><span class="header-section-number">25.1.3.1</span> Example - PM emissions</h4>
+<p>The <code>tigris</code> package is a wealth of primary authoritative data. - <code>roads()</code> data is authoritative, recent, spatially comprehensive, geospatial data. ✅<br>
+- <code>rails()</code> data - same as roads, but does require some spatial tidying. ✅ - <code>places()</code> data - usable to zoom in on spatial scope - requires some spatial tidying/buffering. ✅</p>
+<p>US EPA data for National emissions inventory - this has location information for large sources. ✅</p>
+<p>SCAQMD data for source magnitudes from <a href="https://radicalresearch.llc/EA078_Fall2024/research.html#emissions-of-pm2.5-and-co2">PM AQMP</a>, see table and links to primary sources. ✅</p>
+<p>Restaurant data - I haven’t found a good source for tabular and spatial data on restaurants. Google API might work but requires registration.</p>
+</section>
+<section id="example---roads" class="level4" data-number="25.1.3.2">
+<h4 data-number="25.1.3.2" class="anchored" data-anchor-id="example---roads"><span class="header-section-number">25.1.3.2</span> Example - Roads</h4>
+<p>RCTC website has project information, but it isn’t directly downloadable/scrapable. Tidying required. ✅</p>
+<p>The <code>tigris</code> package is a wealth of primary authoritative data. - <code>roads()</code> data is authoritative, recent, spatially comprehensive, geospatial data. ✅</p>
+<p><a href="https://data.ca.gov/organization/caltrans">Caltrans open data</a> has point data for AADT and truck AADT. Will require spatial joins to road links. Single year of data. Spreadsheets contain multiple years that can be linked to this.</p>
+<p><a href="https://gisopendata-countyofriverside.opendata.arcgis.com/datasets/zoning/about">Riverside County open data</a> has zoning polygons for identifying residential areas, but not necessarily new areas. Other municipalities may be needed to cover specific road segments.</p>
+</section>
+</section>
+<section id="step-3.-import-data" class="level3" data-number="25.1.4">
+<h3 data-number="25.1.4" class="anchored" data-anchor-id="step-3.-import-data"><span class="header-section-number">25.1.4</span> Step 3. Import Data</h3>
+<p>3.1 Identify the data format 3.2 Can I scrape it directly? Is there a url or API or a package in R that will allow me to scrape it? If so, that’s probably the best choice for a reproducible workflow. Examples include <code>tidycensus</code>, <code>tigris</code>, <code>warehouses</code>, <code>co2</code>, and <code>SoCalEJ</code> datasets. 3.3 If not, download it.<br>
+3.3a - Unzip it if zipped or compressed. 3.3b - move data to working directory or point import script to location it is stored. Keeping data in a specific working directory is a better practice.<br>
+3.4 - Import it using appropriate function (<code>st_read()</code>, <code>read_table()</code>, <code>read_csv()</code>, etc.) 3.5 - Review data import 3.5a - look at data table 3.5b - make a basic visualization</p>
+<section id="example---pm-emissions-2" class="level4" data-number="25.1.4.1">
+<h4 data-number="25.1.4.1" class="anchored" data-anchor-id="example---pm-emissions-2"><span class="header-section-number">25.1.4.1</span> Example - PM emissions</h4>
+<p>Scrape <code>roads()</code>, <code>rails()</code>, and <code>places()</code> and <code>warehouses</code>.</p>
+<p>Import facility data from F.I.N.D tool at SCAQMD using <code>openxlsx::read.xlsx()</code>.</p>
+<p>Google maps api call for restaurants or manually assemble restaurant list - both could be slow and painful.</p>
+</section>
+<section id="example---roads-1" class="level4" data-number="25.1.4.2">
+<h4 data-number="25.1.4.2" class="anchored" data-anchor-id="example---roads-1"><span class="header-section-number">25.1.4.2</span> Example - Roads</h4>
+<p>Scrape <code>roads()</code> and <code>warehouses</code>.</p>
+<p>Download passenger and truck AADT data from Caltrans.</p>
+<p>Residential zoning is available for the county and potentially some municipalities for download.</p>
+<p>Assemble road widening project data from county website into data table(s).</p>
+</section>
+</section>
+<section id="step-4.-review-and-tidy-data." class="level3" data-number="25.1.5">
+<h3 data-number="25.1.5" class="anchored" data-anchor-id="step-4.-review-and-tidy-data."><span class="header-section-number">25.1.5</span> Step 4. Review and tidy data.</h3>
+<p>Use <code>head()</code>, <code>tail()</code>, to examine imported rows.</p>
+<ul>
+<li>Check that the number of records seems reasonable - a zero record import is usually bad</li>
+<li>Check for column names, and check that they are R friendly (avoid spaces, special characters)</li>
+<li>Check column types - common errors include dates imported as character types or other incorrect assignments.</li>
+<li>Check for <code>NA</code> and null records, rows, and columns.</li>
+<li>For geospatial data - check coordinate reference system</li>
+</ul>
+<p>As necessary, tidy the data to get it in the form you need. See all the data science steps in <a href="http://localhost:6114/munging.html">Data Science 101</a></p>
 
 
 <script type="ojs-module-contents">
@@ -479,6 +604,7 @@ eyJjb250ZW50cyI6W119
 <script type="vfs-file">
 W10=
 </script>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -915,13 +1041,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./dataTheory.html" class="pagination-link" aria-label="Data Import - Theory and Practice">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Data Import - Theory and Practice</span></span>
+      <a href="./animate.html" class="pagination-link" aria-label="Animations - Two ways">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Animations - Two ways</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./syllabus.html" class="pagination-link" aria-label="Course Syllabus">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Course Syllabus</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./assignment4.html" class="pagination-link" aria-label="Assignments for Unit 4 - Projects">
+        <span class="nav-page-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Assignments for Unit 4 - Projects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

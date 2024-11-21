@@ -1085,51 +1085,75 @@
     ]
   },
   {
-    "objectID": "assignment4.html",
-    "href": "assignment4.html",
-    "title": "25  Assignments for Unit 4 - Projects",
+    "objectID": "dataTheory.html",
+    "href": "dataTheory.html",
+    "title": "25  Data Import - Theory and Practice",
     "section": "",
-    "text": "25.1 Individual Visualization\nDue by email/canvas at 9:45 AM on November 12, 2024.\nAssignment is a single visualization of data on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.\nDescribe a minimum of three features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.",
+    "text": "25.1 Overview\nSome sources to peruse for more information on data import using R.\n- R for Data Science 2e - Data Import\n- An Introduction to R - Data\n- Reading, Writing and Converting Simple Features\n- Introduction to Data Science - Importing Data",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Import - Theory and Practice</span>"
+    ]
+  },
+  {
+    "objectID": "dataTheory.html#overview",
+    "href": "dataTheory.html#overview",
+    "title": "25  Data Import - Theory and Practice",
+    "section": "",
+    "text": "Clearly define the research question\nIdentify relevant authoritative data sources\nCritically evaluate the data sources\nImport the data\nReview and tidy the data\n\n\n\n25.1.1 Step 0. Clearly define the question or objective\nThe zeroeth step is to identify what it is you are planning to do. Delineat the scope of the project for the purposes of defining the data needs.\n\nSpatial extent\nTemporal extent\nVariables/parameters (environmental variables, socioeconomic information, categorical information, jurisdictions)\n\n\n25.1.1.1 Example - Particulate emissions sources affecting Fontana and Bloomington\n\nSpatial extent - The city of Fontana and the census designated place of Bloomington boundaries with a 1 km buffer\nTemporal extent - Emissions sources operational as of 2020 or later.\nVariables/parameters - Major roads, local roads, rail, railyards, industrial facilities in emissions inventory, small area sources like gas stations, restaurants, truck terminals, and warehouses\nDQOs - authoritative sources (census, government agency datasets, OpenStreetMaps, Peer Reviewed Data Products)\n\n\n\n25.1.1.2 Example - Road widening projects in Riverside County and induced Freight VMT/demand\n\nSpatial extent - Western Riverside County - west of Banning\nTemporal extent - Projects constructed between 2014-2024 and planned through 2030\nVariables/parameters - Road links, vehicle and truck AADT, warehouse land-use, residential developments\n\n\n\n\n25.1.2 Step 1. Identify relevant authoritative data sources\nWhat is the best dataset that meets the needs of the research question? What authoritative sources provide information?\nLook for government agencies, peer-reviewed data, and other similar authoritative and quality assured sources.\n\n25.1.2.1 Example - PM emissions\n\nRoad and rail datasets from US Census Tiger files (tigris) or Caltrans\nLarge Facility information from US EPA, CARB or SCAQMD\nSmall localized sources like restaurants and small industrial facilities (Warehouse CITY or CoStar)\n\n\n\n25.1.2.2 Example - Road Widening\n\nRCTC project information\nRoad link information from US Census Tiger files (tigris) or Caltrans\nTraffic and truck volume AADT (annual average daily traffic) data from Caltrans\nWarehouse data from Warehouse CITY or CoStar ($$)\nResidential information from County of Riverside (unincorporated) and municipalities\n\n\n\n\n25.1.3 Step 2. Critically evaluate the data sources\nPrior to acquiring the data, it is important to evaluate its utility for your goals, to the extent possible.\n\nWhat type of data is it? (geospatial, tabular, categorical, qualitative)\nDoes it cover the spatial domain?\nIs it the right temporal period?\nDoes it have the right variables?\nWhat format is it in?\n\nDoes it require any specific citations, licenses, and/or attribution for use?\n\n\n\n\n\n\n\nSometimes these things can’t be evaluated until you import the data. Iterate through step 2-4 as needed.\n\n\n\n\n25.1.3.1 Example - PM emissions\nThe tigris package is a wealth of primary authoritative data. - roads() data is authoritative, recent, spatially comprehensive, geospatial data. ✅\n- rails() data - same as roads, but does require some spatial tidying. ✅ - places() data - usable to zoom in on spatial scope - requires some spatial tidying/buffering. ✅\nUS EPA data for National emissions inventory - this has location information for large sources. ✅\nSCAQMD data for source magnitudes from PM AQMP, see table and links to primary sources. ✅\nRestaurant data - I haven’t found a good source for tabular and spatial data on restaurants. Google API might work but requires registration.\n\n\n25.1.3.2 Example - Roads\nRCTC website has project information, but it isn’t directly downloadable/scrapable. Tidying required. ✅\nThe tigris package is a wealth of primary authoritative data. - roads() data is authoritative, recent, spatially comprehensive, geospatial data. ✅\nCaltrans open data has point data for AADT and truck AADT. Will require spatial joins to road links. Single year of data. Spreadsheets contain multiple years that can be linked to this.\nRiverside County open data has zoning polygons for identifying residential areas, but not necessarily new areas. Other municipalities may be needed to cover specific road segments.\n\n\n\n25.1.4 Step 3. Import Data\n3.1 Identify the data format 3.2 Can I scrape it directly? Is there a url or API or a package in R that will allow me to scrape it? If so, that’s probably the best choice for a reproducible workflow. Examples include tidycensus, tigris, warehouses, co2, and SoCalEJ datasets. 3.3 If not, download it.\n3.3a - Unzip it if zipped or compressed. 3.3b - move data to working directory or point import script to location it is stored. Keeping data in a specific working directory is a better practice.\n3.4 - Import it using appropriate function (st_read(), read_table(), read_csv(), etc.) 3.5 - Review data import 3.5a - look at data table 3.5b - make a basic visualization\n\n25.1.4.1 Example - PM emissions\nScrape roads(), rails(), and places() and warehouses.\nImport facility data from F.I.N.D tool at SCAQMD using openxlsx::read.xlsx().\nGoogle maps api call for restaurants or manually assemble restaurant list - both could be slow and painful.\n\n\n25.1.4.2 Example - Roads\nScrape roads() and warehouses.\nDownload passenger and truck AADT data from Caltrans.\nResidential zoning is available for the county and potentially some municipalities for download.\nAssemble road widening project data from county website into data table(s).\n\n\n\n25.1.5 Step 4. Review and tidy data.\nUse head(), tail(), to examine imported rows.\n\nCheck that the number of records seems reasonable - a zero record import is usually bad\nCheck for column names, and check that they are R friendly (avoid spaces, special characters)\nCheck column types - common errors include dates imported as character types or other incorrect assignments.\nCheck for NA and null records, rows, and columns.\nFor geospatial data - check coordinate reference system\n\nAs necessary, tidy the data to get it in the form you need. See all the data science steps in Data Science 101",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Data Import - Theory and Practice</span>"
+    ]
+  },
+  {
+    "objectID": "assignment4.html",
+    "href": "assignment4.html",
+    "title": "26  Assignments for Unit 4 - Projects",
+    "section": "",
+    "text": "26.1 Individual Visualization\nDue by email/canvas at 9:45 AM on November 12, 2024.\nAssignment is a single visualization of data on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.\nDescribe a minimum of three features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
     "objectID": "assignment4.html#grading-for-individual-visualization-project",
     "href": "assignment4.html#grading-for-individual-visualization-project",
-    "title": "25  Assignments for Unit 4 - Projects",
-    "section": "25.2 Grading for Individual Visualization Project",
-    "text": "25.2 Grading for Individual Visualization Project\nTotal of 200 points\n\n20 points for data source attribution\n30 points for description of three features\n60 points for three features implementation in visualization\n45 points for aesthetics\n45 points for labels, legend, and in-visualization annotation",
+    "title": "26  Assignments for Unit 4 - Projects",
+    "section": "26.2 Grading for Individual Visualization Project",
+    "text": "26.2 Grading for Individual Visualization Project\nTotal of 200 points\n\n20 points for data source attribution\n30 points for description of three features\n60 points for three features implementation in visualization\n45 points for aesthetics\n45 points for labels, legend, and in-visualization annotation",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
     "objectID": "assignment4.html#group-visualization",
     "href": "assignment4.html#group-visualization",
-    "title": "25  Assignments for Unit 4 - Projects",
-    "section": "25.3 Group Visualization",
-    "text": "25.3 Group Visualization\nDue Date\nA group presentation on the progress to date will occur on December 3rd, 2024. Final group visualization will be due December 10th, 2024 at noon (PST).\nAssignment is a visualization on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.\nDescribe the features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.\nDocument in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that.",
+    "title": "26  Assignments for Unit 4 - Projects",
+    "section": "26.3 Group Visualization",
+    "text": "26.3 Group Visualization\nDue Date\nA group presentation on the progress to date will occur on December 3rd, 2024. Final group visualization will be due December 10th, 2024 at noon (PST).\nAssignment is a visualization on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.\nDescribe the features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.\nDocument in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that.",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
     "objectID": "assignment4.html#grading-for-group-visualization-project",
     "href": "assignment4.html#grading-for-group-visualization-project",
-    "title": "25  Assignments for Unit 4 - Projects",
-    "section": "25.4 Grading for Group Visualization Project",
-    "text": "25.4 Grading for Group Visualization Project\nTotal of 250 points\n\n30 points for data source attribution\n30 points for description of features\n70 points for features implementation in visualization(s)\n30 points for aesthetics\n30 points for labels, legend, and in-visualization annotation\n30 points for the visualization providing insight into the group theme\n30 points for group participation - (team grading)",
+    "title": "26  Assignments for Unit 4 - Projects",
+    "section": "26.4 Grading for Group Visualization Project",
+    "text": "26.4 Grading for Group Visualization Project\nTotal of 250 points\n\n30 points for data source attribution\n30 points for description of features\n70 points for features implementation in visualization(s)\n30 points for aesthetics\n30 points for labels, legend, and in-visualization annotation\n30 points for the visualization providing insight into the group theme\n30 points for group participation - (team grading)",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
