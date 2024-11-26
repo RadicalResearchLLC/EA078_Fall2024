@@ -1,0 +1,43 @@
+# SoCal Earth {#sec-SoCalEarth}
+
+::: {.callout-note appearance="simple"}
+Today we'll be review some functions and features from a simple dashboard made for SoCal Earth
+:::
+
+## SoCal Earth
+
+The **Redford Conservancy** launched [SoCal Earth](https://www.socalearth.org/) last month. The Goal of soCal Earth is to be a hub for environmental information and transformation in SoCal.
+
+![SoCal Earth](https://www.socalearth.org/wp-content/uploads/2024/07/Bright-Background-Horizontal-1024x520.png){#fig-SoCalEarthLogo}
+
+SoCal Earth aims to put community and climate first in decision making.
+
+I built a couple of simple dashboards for conservation and energy. Today, we'll look at the code and features from the [SoCal Conservation](https://radicalresearch.shinyapps.io/SoCalConservation/) dashboard.
+
+The code is on [github](https://github.com/RadicalResearchLLC/SoCalConservation) in two pieces - a pre-processing script and the app script.
+
+## Features
+
+-   SelectizeInput for choosing a jurisdiction
+-   SliderInput for selecting an accessibility buffer distance
+-   Three separate tiles (terrain, imagery, minimal grey)
+-   Four data layers (conserved lands, jurisdictions, biodiversity index, and county boundaries)
+-   ZoomTo feature
+-   Calculates percentage of land-conserved in three different ways on-the-fly
+-   Allows for simple comparisons between places with high and low conservation
+
+## New Functions, packages
+
+-   `st_make_valid()` - fix broken topology
+-   `st_intersection()` - a spatial join that is similar to `st_filter()` but it clips to the first polygon
+-   `st_is_valid()` - checks for invalid/valid geospatial shapes - returns boolean TRUE or FALSE for all records
+-   `st_zm()` - removes a z-axis from geospatial shapes for display in only 2D
+-   `bslib` - shiny layout package
+-   `bsicons` - bootstrap icons package
+-   `lwgeom` - `sf` helper functions for geospatial manipulation - was originally key for `st_make_valid()` which is now part of base `sf`
+-   `actionButton()` - shiny function that instigates an action when the user presses the button
+-   `uiOutput()` - renders HTML objects - the generic ui render function
+-   `addMapPane()` - leaflet function that keeps layers in front-to-back order (i.e., zIndex) no matter which layer has been turned on/off most recently
+-   'leafletProxy()`- manipulates layers of a leaflet map in`shiny\` without re-rendering the whole map
+-   `value_box()` - bslib template for displaying a dashboard-y box with a value
+-   `fitBounds()` - leaflet function for zooming to a rectangular box that indicates the currently selected spatial extent

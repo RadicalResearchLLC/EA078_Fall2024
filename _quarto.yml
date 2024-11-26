@@ -44,6 +44,7 @@ book:
       - roads_rails_tracts_buffers.qmd
       - animate.qmd
       - dataTheory.qmd
+      - SoCalEarth.qmd
       - assignment4.qmd
   appendices: 
     - syllabus.qmd  
