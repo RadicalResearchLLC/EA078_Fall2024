@@ -1109,51 +1109,99 @@
     ]
   },
   {
-    "objectID": "assignment4.html",
-    "href": "assignment4.html",
-    "title": "26  Assignments for Unit 4 - Projects",
+    "objectID": "SoCalEarth.html",
+    "href": "SoCalEarth.html",
+    "title": "26  SoCal Earth",
     "section": "",
-    "text": "26.1 Individual Visualization\nDue by email/canvas at 9:45 AM on November 12, 2024.\nAssignment is a single visualization of data on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.\nDescribe a minimum of three features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.",
+    "text": "26.1 SoCal Earth\nThe Redford Conservancy launched SoCal Earth last month. The Goal of soCal Earth is to be a hub for environmental information and transformation in SoCal.\nSoCal Earth aims to put community and climate first in decision making.\nI built a couple of simple dashboards for conservation and energy. Today, we’ll look at the code and features from the SoCal Conservation dashboard.\nThe code is on github in two pieces - a pre-processing script and the app script.",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>SoCal Earth</span>"
+    ]
+  },
+  {
+    "objectID": "SoCalEarth.html#socal-earth",
+    "href": "SoCalEarth.html#socal-earth",
+    "title": "26  SoCal Earth",
+    "section": "",
+    "text": "Figure 26.1: SoCal Earth",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>SoCal Earth</span>"
+    ]
+  },
+  {
+    "objectID": "SoCalEarth.html#features",
+    "href": "SoCalEarth.html#features",
+    "title": "26  SoCal Earth",
+    "section": "26.2 Features",
+    "text": "26.2 Features\n\nSelectizeInput for choosing a jurisdiction\nSliderInput for selecting an accessibility buffer distance\nThree separate tiles (terrain, imagery, minimal grey)\nFour data layers (conserved lands, jurisdictions, biodiversity index, and county boundaries)\nZoomTo feature\nCalculates percentage of land-conserved in three different ways on-the-fly\nAllows for simple comparisons between places with high and low conservation",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>SoCal Earth</span>"
+    ]
+  },
+  {
+    "objectID": "SoCalEarth.html#new-functions-packages",
+    "href": "SoCalEarth.html#new-functions-packages",
+    "title": "26  SoCal Earth",
+    "section": "26.3 New Functions, packages",
+    "text": "26.3 New Functions, packages\n\nst_make_valid() - fix broken topology\nst_intersection() - a spatial join that is similar to st_filter() but it clips to the first polygon\nst_is_valid() - checks for invalid/valid geospatial shapes - returns boolean TRUE or FALSE for all records\nst_zm() - removes a z-axis from geospatial shapes for display in only 2D\nbslib - shiny layout package\nbsicons - bootstrap icons package\nlwgeom - sf helper functions for geospatial manipulation - was originally key for st_make_valid() which is now part of base sf\nactionButton() - shiny function that instigates an action when the user presses the button\nuiOutput() - renders HTML objects - the generic ui render function\naddMapPane() - leaflet function that keeps layers in front-to-back order (i.e., zIndex) no matter which layer has been turned on/off most recently\n’leafletProxy()- manipulates layers of a leaflet map inshiny` without re-rendering the whole map\nvalue_box() - bslib template for displaying a dashboard-y box with a value\nfitBounds() - leaflet function for zooming to a rectangular box that indicates the currently selected spatial extent",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>SoCal Earth</span>"
+    ]
+  },
+  {
+    "objectID": "assignment4.html",
+    "href": "assignment4.html",
+    "title": "27  Assignments for Unit 4 - Projects",
+    "section": "",
+    "text": "27.1 Individual Visualization\nDue by email/canvas at 9:45 AM on November 12, 2024.\nAssignment is a single visualization of data on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization. Source of data should be clearly identified as a comment within the .R script.\nDescribe a minimum of three features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.",
+    "crumbs": [
+      "Home",
+      "Unit 4: Special Projects",
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
     "objectID": "assignment4.html#grading-for-individual-visualization-project",
     "href": "assignment4.html#grading-for-individual-visualization-project",
-    "title": "26  Assignments for Unit 4 - Projects",
-    "section": "26.2 Grading for Individual Visualization Project",
-    "text": "26.2 Grading for Individual Visualization Project\nTotal of 200 points\n\n20 points for data source attribution\n30 points for description of three features\n60 points for three features implementation in visualization\n45 points for aesthetics\n45 points for labels, legend, and in-visualization annotation",
+    "title": "27  Assignments for Unit 4 - Projects",
+    "section": "27.2 Grading for Individual Visualization Project",
+    "text": "27.2 Grading for Individual Visualization Project\nTotal of 200 points\n\n20 points for data source attribution\n30 points for description of three features\n60 points for three features implementation in visualization\n45 points for aesthetics\n45 points for labels, legend, and in-visualization annotation",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
     "objectID": "assignment4.html#group-visualization",
     "href": "assignment4.html#group-visualization",
-    "title": "26  Assignments for Unit 4 - Projects",
-    "section": "26.3 Group Visualization",
-    "text": "26.3 Group Visualization\nDue Date\nA group presentation on the progress to date will occur on December 3rd, 2024. Final group visualization will be due December 10th, 2024 at noon (PST).\nAssignment is a visualization on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.\nDescribe the features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.\nDocument in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that.",
+    "title": "27  Assignments for Unit 4 - Projects",
+    "section": "27.3 Group Visualization",
+    "text": "27.3 Group Visualization\nDue Date\nA group presentation on the progress to date will occur on December 3rd, 2024. Final group visualization will be due December 10th, 2024 at noon (PST).\nAssignment is a visualization on the team’s chosen topic. Assignment should provide an exported visualization .png, .pdf, .html and the .R script used to generate the visualization(s). Source(s) of data should be clearly identified as a comment within the .R script.\nDescribe the features that were selected to explore the dataset, either in the .R script or in the email. Bullet points are fine.\nDocument in a single paragraph how the visualization shows the group theme. I want a brief story of how the visualization illustrates that.",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
     "objectID": "assignment4.html#grading-for-group-visualization-project",
     "href": "assignment4.html#grading-for-group-visualization-project",
-    "title": "26  Assignments for Unit 4 - Projects",
-    "section": "26.4 Grading for Group Visualization Project",
-    "text": "26.4 Grading for Group Visualization Project\nTotal of 250 points\n\n30 points for data source attribution\n30 points for description of features\n70 points for features implementation in visualization(s)\n30 points for aesthetics\n30 points for labels, legend, and in-visualization annotation\n30 points for the visualization providing insight into the group theme\n30 points for group participation - (team grading)",
+    "title": "27  Assignments for Unit 4 - Projects",
+    "section": "27.4 Grading for Group Visualization Project",
+    "text": "27.4 Grading for Group Visualization Project\nTotal of 250 points\n\n30 points for data source attribution\n30 points for description of features\n70 points for features implementation in visualization(s)\n30 points for aesthetics\n30 points for labels, legend, and in-visualization annotation\n30 points for the visualization providing insight into the group theme\n30 points for group participation - (team grading)",
     "crumbs": [
       "Home",
       "Unit 4: Special Projects",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Assignments for Unit 4 - Projects</span>"
     ]
   },
   {
